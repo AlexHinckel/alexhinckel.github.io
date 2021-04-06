@@ -42,9 +42,760 @@
 
     <div class="container">
       <section id="main_content">
-        <h2 id="welcome-to-another-page">Welcome to another page</h2>
+        <p><strong>Lista de tarefas para estudo / documentação</strong></p>
 
-<p><em>yay</em></p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Tipo de dados</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Ajuda no Python (dir, help, pep8)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Variaveis</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Operadores Aritmeticos</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Operadores Logicos</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Condicionais</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Estruturas de repetição for, while, break</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />PyInstaller</li>
+</ul>
+
+<h2 id="tipos-de-dados">TIPOS DE DADOS</h2>
+
+<p>Abaixo tabela com os tipos de dados em Python.</p>
+
+<p>| Tipo    | Descrição |
+| ———– | ———– |
+| String | Texto
+| Numerico| Numeros inteiros
+| Float| Numeros com casas decimais ,
+| Booleano| True or False
+—
+Detalhes em <a href="https://github.com/AlexHinckel/Python/tree/main/Curso/Tipos">GitHub</a></p>
+
+<h2 id="variaveis">VARIAVEIS</h2>
+
+<p>Existem dois casos de escopo de variáveis.</p>
+
+<h3 id="variaveis-globais">Variaveis globais</h3>
+
+<p>São reconhecidas, ou seja, seu escopo <strong>compreende todo o programa</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numero = 42 # Exemplo de variavel global
+</code></pre></div></div>
+
+<h3 id="variaveis-locais">Variaveis locais</h3>
+
+<p><strong>São reconhecidas apenas no bloco onde foram declaradas</strong>, ou seja, seu escopo esta limitado ao bloco onde foi declarada.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">numero</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">numero</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">novo</span> <span class="o">=</span> <span class="n">numero</span> <span class="o">+</span><span class="mi">10</span> <span class="c1"># A variavel 'novo' esta declarada localmente dentro do bloco do if. Portando é local.
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">novo</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Python é uma linguagem de tipagem dinâmica. Isso significa ao declararmos uma variavel,nós não colocamos o tipo de dado dela.
+Esse tipo é inferido ao atribuirmos o valor a mesma.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Exemplo</span> <span class="n">em</span> <span class="nl">Java:</span>
+<span class="kt">int</span> <span class="n">numero</span> <span class="o">=</span> <span class="mi">42</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h2 id="operadores-matemáticos">OPERADORES MATEMÁTICOS</h2>
+
+<p>O Python pode ser utilizado como uma calculadora matemática avançada. Praticamente, todos os operadores aritméticos funcionam da mesma forma como os conhecemos da matemática elementar. Por exemplo, para trabalharmos com as 4 principais funções matemáticas, a soma, subtração, multiplicação e divisão, temos os operadores conforme tabela a seguir.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operação</th>
+      <th>Operador</th>
+      <th>Comentario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adição</td>
+      <td>+</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>subtração</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>multiplicação</td>
+      <td>*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>divisão</td>
+      <td>/</td>
+      <td>divisão flutuante</td>
+    </tr>
+    <tr>
+      <td>exponenciação</td>
+      <td>**</td>
+      <td>Elevado… pow(4,3)</td>
+    </tr>
+    <tr>
+      <td>parte inteira</td>
+      <td>//</td>
+      <td>divisão inteira</td>
+    </tr>
+    <tr>
+      <td>módulo</td>
+      <td>%</td>
+      <td>Resto da divisão</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A <strong>Ordem de Predência</strong> é extremamente relevante, pois vai executar operações em ordens, podendo gerar resultados incorretos.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 - ()
+2 - **
+3 - * / // %
+4 - + -
+</code></pre></div></div>
+
+<p>Podemos elevar um número a outro através da utilização de 2 sinais de multiplicação seguidos **, isto é, o operador ** é o operador para exponenciação em Python. Também é possível obter a parte inteira da divisão, com o uso do sinal de divisão repetido, //.</p>
+
+<p>A seguir, temos algumas operações matemáticas utilizando os operadores que acabamos de estudar e seus respectivos resultados:</p>
+
+<p><a href="https://github.com/AlexHinckel/Python/blob/main/Curso/OperacoesAritmeticas.py">OperacoesAritmeticas.py</a></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+// &gt;&gt;&gt; divisão inteira
+/  &gt;&gt;&gt; divisão flutuante
+** &gt;&gt;&gt; Elevado... pow(4,3)
+%  &gt;&gt;&gt; Resto da divisão
+print('='*50)
+"""</span>
+
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite um valor: '</span><span class="p">))</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite outro valor: '</span><span class="p">))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">*</span> <span class="n">n2</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">/</span> <span class="n">n2</span>
+<span class="n">di</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">//</span> <span class="n">n2</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">**</span> <span class="n">n2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'A soma é {} </span><span class="se">\n</span><span class="s"> o produto é {} </span><span class="se">\n</span><span class="s"> e a divisão é {:.3f}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Divisão inteira {} e potência {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">di</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="operadores-logicos-and-or-e-not">OPERADORES LOGICOS (AND, OR e NOT)</h2>
+
+<p>Utilizamos os operadores lógicos quando precisamos realizar operações sobre um ou dois valores booleanos.</p>
+
+<p>Estruturas lógicas: and, (e), or (ou), not (não), is (é)</p>
+
+<p>Considere que a variável A contém o valor true (verdadeiro) e a variável B contém false (falso).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operador</th>
+      <th>Descrição</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>and</td>
+      <td>Operador AND (E)</td>
+      <td>(A and B) é false</td>
+    </tr>
+    <tr>
+      <td>or</td>
+      <td>Operador OR (OU)</td>
+      <td>(A or B) é true</td>
+    </tr>
+    <tr>
+      <td>not</td>
+      <td>Operador NOT (NÃO) ou Negação</td>
+      <td>not(A and B) é true</td>
+    </tr>
+    <tr>
+      <td>is</td>
+      <td>Operador is (é)</td>
+      <td>(A is B) é false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Operadores unários:</p>
+<ul>
+  <li>not</li>
+</ul>
+
+<p>Operadores Binários</p>
+<ul>
+  <li>and</li>
+  <li>or</li>
+  <li>is</li>
+</ul>
+
+<p>Regras de funcionamento:</p>
+<ul>
+  <li>Para o ‘and’, ambos os valores precisam ser True.</li>
+  <li>Para o ‘or’, um ou outro valor precisa ser True.</li>
+  <li>Para o ‘not’, o valor do booleano é invertivo.</li>
+  <li>Para o ‘is’, o valor é comparado com um segundo.</li>
+</ul>
+
+<p>Exemplos</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ativo</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">logado</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="c1"># Se não estiver ativo alerte o usuário
+</span><span class="k">if</span> <span class="ow">not</span> <span class="n">ativo</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Você precisa ativar sua conta. Por favor, cheque seu e-mail'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Bem vindo usuário'</span><span class="p">)</span>
+<span class="o">============================================================</span>
+<span class="k">if</span> <span class="n">ativo</span> <span class="ow">and</span> <span class="n">logado</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Bem vindo Usuário!'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Voce precisa ativar sua conta, por favor cheque seu e-mail!'</span><span class="p">)</span>
+<span class="o">============================================================</span>
+<span class="c1">#if ativo is False:
+</span><span class="k">if</span> <span class="n">ativo</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Bem vindo usuário'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Você precisa ativar sua conta. Por favor, cheque seu e-mail'</span><span class="p">)</span>
+<span class="s">"""
+</span></code></pre></div></div>
+
+<h2 id="condicionais">CONDICIONAIS</h2>
+
+<ul>
+  <li>if (Se)</li>
+  <li>elif (Senão Se)</li>
+  <li>else (Senão)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Estrutura condicional Simples
+</span><span class="n">nome</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite seu nome: '</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">nome</span> <span class="o">==</span> <span class="s">'Alex'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Nome manero!'</span><span class="p">)</span>
+
+<span class="c1"># Condicao simplificada
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Carro novo'</span> <span class="k">if</span> <span class="n">carro</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="k">else</span> <span class="s">'Carro Veio'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'--FIM--'</span><span class="p">)</span>
+
+<span class="c1"># Estrutura condicional Composta
+</span><span class="n">carro</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Quantos anos seu carro tem? '</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">carro</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Carro novo'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Carro veio'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'--FIM--'</span><span class="p">)</span>
+
+<span class="c1"># Estrutura condicional aninhada (Estruturas dentro da outra)
+</span><span class="n">idade</span> <span class="o">=</span> <span class="mi">39</span>
+<span class="k">if</span> <span class="n">idade</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Menor de idade'</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">idade</span> <span class="o">==</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Tem 18 anos'</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">idade</span> <span class="o">==</span> <span class="mi">40</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Tem 40 anos'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Maior de idade'</span><span class="p">)</span>
+<span class="s">"""
+</span></code></pre></div></div>
+<hr />
+<h2 id="entendendo-ranges">ENTENDENDO RANGES</h2>
+
+<p>Precisamos conhecer o loop for para usar o ranges e conhecer melhor o range para trabalhar com for.</p>
+
+<p>Ranges são utilizados para gerar sequencias numericas, não de forma aleatoria, mas de maneira especificada.</p>
+
+<p>range (valor_inicio,valor_de_parada,passo)</p>
+
+<p>OBS:</p>
+<ul>
+  <li>valor de parada não inclusive</li>
+  <li>inicio padrão 0</li>
+  <li>passo padrão de 1 em 1</li>
+</ul>
+
+<p>Formas gerais:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Forma 1
+</span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="c1">#Forma 2
+</span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="c1">#Forma 3
+</span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="c1">#Forma 4 (Inversa)
+</span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div></div>
+<hr />
+<h2 id="estruturas-de-repeticao">ESTRUTURAS DE REPETICAO</h2>
+
+<p>As estruturas de repetição (também conhecidas como laços ou loops) geralmente são utilizadas para processar uma coleção de dados, linhas de um arquivo, registros de um banco de dados que precisam ser processados por um mesmo bloco de código.</p>
+
+<p>Existem várias estruturas de repetição. Entre elas temos o <strong>for</strong> e o <strong>while</strong></p>
+
+<h3 id="estrutura-de-repetição-for">Estrutura de repetição FOR</h3>
+
+<p>estrutura de repetição com variaveis de controle, possibilidade de repetir eternamente até o limite / condição seja atingida.</p>
+
+<p>Sintase:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">For</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iteravel</span><span class="p">:</span>
+    <span class="n">execução</span> <span class="n">do</span> <span class="n">loop</span>
+</code></pre></div></div>
+
+<p>Utilizamos loops para iterar sobre sequencias ou sobre valores iteráveis
+Exemplos de iteráveis</p>
+<ul>
+  <li>String ==&gt;   nome = ‘Geek’</li>
+  <li>Lista ==&gt;   Lista = [1, 3, 5, 7, 9]</li>
+  <li>Range ==&gt;  numeros = range(1, 10)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nome</span> <span class="o">=</span> <span class="s">'Geek University'</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">numeros</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># Temos que transformar em uma lista
+</span>
+<span class="c1"># Exemplo de for 1 (iterando em uma string)
+</span><span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">nome</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">letra</span><span class="p">)</span>
+
+<span class="n">nome</span> <span class="o">=</span> <span class="s">'Geek'</span>
+<span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">nome</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">letra</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+
+<span class="c1"># Exemplo de for utilizando Range
+</span><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="s">"""
+OBS: o valor final não é inclusivo.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 - NÃO
+"""</span>
+
+<span class="c1"># Exemplo 1
+</span><span class="n">qtd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Quantas vezes esse loop deve rodar?'</span><span class="p">))</span>
+<span class="n">soma</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">qtd</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Imprimindo </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="n">qtd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Quantas vezes esse loop deve rodar?'</span><span class="p">))</span>
+<span class="n">soma</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">qtd</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s">'Informe o </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">qtd</span><span class="si">}</span><span class="s"> valor: '</span><span class="p">))</span>
+    <span class="n">soma</span> <span class="o">=</span> <span class="n">soma</span> <span class="o">+</span> <span class="n">num</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"A soma é </span><span class="si">{</span><span class="n">soma</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Mensagem'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'=== FIM ==='</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 3
+</span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'==== FIM ===='</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 4
+</span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'==== FIM ===='</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 5
+</span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'==== FIM ===='</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 6
+</span><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite um numero: '</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numero</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 7
+</span><span class="n">inicio</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Inicio: '</span><span class="p">))</span>
+<span class="n">fim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Fim: '</span><span class="p">))</span>
+<span class="n">passo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Passo: '</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">laco</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">inicio</span><span class="p">,</span> <span class="n">fim</span><span class="p">,</span> <span class="n">passo</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">laco</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>E se você não souber o limite? Apenas While funciona</p>
+
+<hr />
+
+<h3 id="estrutura-de-repetição-while">Estrutura de repetição While</h3>
+
+<p>Diferente do For, o While é utilizado em casos em que não sabe-se o limite. Sera repetido enquanto a expressão booleana for verdadeira</p>
+
+<p><em>MUITO CUIDADO COM LOOP INFINITO</em> (Consulte Break)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while expressao_booleana
+    //execucao do loop
+</code></pre></div></div>
+
+<p>Exemplo em Portugol</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>enquanto não maça:
+    passo
+pega
+</code></pre></div></div>
+
+<p>Abaixo segue lista de exemplos utilizando While.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># Exemplo 1
+</span><span class="n">numero</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">numero</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+    <span class="n">numero</span> <span class="o">=</span> <span class="n">numero</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite um numero: '</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fim'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 3
+</span><span class="n">r</span> <span class="o">=</span> <span class="s">'S'</span>
+<span class="k">while</span> <span class="n">r</span> <span class="o">==</span> <span class="s">'S'</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite um valor: '</span><span class="p">))</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Quer continuar? [S/N]'</span><span class="p">)).</span><span class="n">upper</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">'FIM'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 4
+</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">par</span> <span class="o">=</span> <span class="n">impar</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite um numero: '</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">par</span> <span class="o">=</span> <span class="n">par</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">impar</span> <span class="o">=</span> <span class="n">impar</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Voce digitou {} numeros pares e {} numeros impares!'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">impar</span><span class="p">))</span>
+
+<span class="c1"># Exemplo 5
+</span><span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">cont</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">cont</span><span class="p">,</span> <span class="s">'--&gt;'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">cont</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Acabou'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="interrompendo-laços-com-break">Interrompendo laços com BREAK</h3>
+
+<p>o comando <strong>break</strong> Tem a função de sair de loops de maneira projetada, evitando loop infinito.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>While True:   --&gt; LOOP INFINITO
+    if Condicao
+        comandos
+    if Condicao
+        comandos
+    if Condicao-ALVO
+        comandos
+        break  &gt;&gt;&gt; JOGA PRA FORA E TERMINA O PROGRAMA
+Pega
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># Exemplo 1
+</span><span class="n">soma</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite um número: '</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">numero</span> <span class="o">==</span> <span class="mi">999</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">soma</span> <span class="o">=</span> <span class="n">soma</span> <span class="o">+</span> <span class="n">numero</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'A soma vale </span><span class="si">{</span><span class="n">soma</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">numero</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'sai do loop'</span><span class="p">)</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="coleções-python">COLEÇÕES PYTHON</h2>
+
+<h3 id="listas">LISTAS</h3>
+<p>Listas em Python funcionam como vetores/matrizes (arrays) em outras linguagens, com a diferença de serem <strong>dinâmicos</strong> e também de podermos colocar <strong>qualquer tipo de dado</strong>.</p>
+
+<ul>
+  <li>Dinâmico: não possuem tamanho fixo; Ou seja, podemos criar a lista e simplesmente adicionar novos elementos.</li>
+  <li>Qualquer tipo de dado: as listas não possuem tipo de dado fixo; Ou seja, podemos colocar qualquer tipo de dado</li>
+</ul>
+
+<p>As listas em python são representadas por <strong>colchetes []</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lista1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">lista2</span> <span class="o">=</span> <span class="p">[</span><span class="s">'G'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'k'</span><span class="p">]</span>
+<span class="n">lista3</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">lista4</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">lista5</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s">'Geek'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 1
+</span><span class="n">num</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">lista4</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei o numero </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="n">palavra</span> <span class="o">=</span> <span class="n">Geek</span>
+<span class="k">if</span> <span class="n">nome</span> <span class="ow">in</span> <span class="n">lista4</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei a palavra </span><span class="si">{</span><span class="n">palavra</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 3
+</span><span class="n">letra</span> <span class="o">=</span> <span class="s">'e'</span>
+<span class="k">if</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">lista5</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei a letra </span><span class="si">{</span><span class="n">letra</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 4
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">lista1</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">lista1</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">lista1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># Adicionando dados no final da lista com append (1 elemento por vez)
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">'novo valor'</span><span class="p">)</span> <span class="c1"># Adicionando valor em posições do indice (não substitui valor inicial)
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">127</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">95</span><span class="p">])</span> <span class="c1"># Adicionando varios dados no final da lista com extend
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># Remove ultimo elemento da lista e retorna em tela.
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># Remove todos os elementos.
+</span><span class="n">nova_lista</span> <span class="o">=</span> <span class="n">lista1</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># Copiando listas
+</span>
+<span class="c1"># Exemplo 5 ==&gt; Iterando sobre listas
+</span><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 6 ==&gt; Utilizando While
+</span><span class="n">carrinho</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">produto</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">while</span> <span class="n">produto</span> <span class="o">!=</span> <span class="s">'sair'</span><span class="p">:</span>
+    <span class="n">produto</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Adicione um produto ou digite sair para sair: '</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">produto</span> <span class="o">!=</span> <span class="s">'sair'</span><span class="p">:</span>
+        <span class="n">carrinho</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">produto</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">carrinho</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 7 ==&gt; Gerar indice de cores
+</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[</span><span class="s">'verde'</span><span class="p">,</span> <span class="s">'amarelo'</span><span class="p">,</span> <span class="s">'vermelho'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">indice</span><span class="p">,</span> <span class="n">cor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cores</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">indice</span><span class="p">,</span> <span class="n">cor</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 8 ==&gt; descorbrir indice de um produto
+</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Gol'</span><span class="p">,</span> <span class="s">'Renault'</span><span class="p">,</span> <span class="s">'Fiat'</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cores</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="s">'Fiat'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="dir--help">DIR / HELP</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+Utilitários Python para auxiliar na programação
+
+dir --&gt; Apresenta todos os atributos/propriedades e funções/métodos disponiveis para determinado tipo de dado ou variavel.
+
+dir("tipo de dados/variavel")
+dir ("Geek")
+
+help --&gt; Apresenta a documentação/como utilizar os atributos/propriedades e funções/métodos disponiveis para determinado tipo de dado ou variavel
+
+help(tipo de dado/variavel.propriedade)
+help (Geek.lower)
+"Geek".lower()
+geek
+"geek".title()
+Geek
+num = 4
+num.__add__(6)
+10
+"""</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="s">'geek'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="pep8---python-enhancement-proposal">PEP8 - Python Enhancement Proposal</h2>
+
+<p>São propostas de melhorias para a linguagem Python. (The Zen of Python
+import this).</p>
+
+<p>A ideia da PEP8 é que possamos escrever códigos Python de forma Pythônica (bonita, visual, agradavel).</p>
+
+<p>Abaixo algumas.</p>
+
+<ul>
+  <li>Utiliza Camel Case para nomes de classes
+```python</li>
+</ul>
+
+<p>class CalculadoraCientifica:
+    pass</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- Utilize nomes em minúsculo, separados por underline para funções ou variaveis;
+```python
+def soma_dois()
+    pass
+numero = 4
+numero_impar = 5
+</code></pre></div></div>
+
+<ul>
+  <li>Utilize 4 espaços para identação! (NÃO use tab)
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s">'a'</span> <span class="ow">in</span> <span class="s">'banana'</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">'tem'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Linhas em branco</li>
+  <li>Separar funções e definições de classe com duas linhas em branco;</li>
+  <li>Métodos dentro de uma classe devem ser separados com uma unica linha em branco;</li>
+  <li>Imports devem ser sempre feitos em linhas separadas;</li>
+  <li>Imports devem ser colocados no topo do arquivo, logo depois de quaisquer comentarios ou docstrings, e antes de constantes ou variaveis globais;
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">StringType</span><span class="p">,</span> <span class="n">ListType</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Espaços em expressões e instruções
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Não faça
+</span><span class="n">Funcao</span><span class="p">(</span> <span class="n">algo</span><span class="p">[</span> <span class="mi">1</span> <span class="p">],</span> <span class="p">{</span> <span class="n">outro</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">)</span>
+<span class="c1"># Faça
+</span><span class="n">Funcao</span><span class="p">(</span><span class="n">algo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">{</span><span class="n">outro</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Termine sempre uma instrução com uma nova linha;</li>
+</ul>
+
+<h2 id="modulos">Modulos</h2>
+
+<p>Cada arquivo em Python é chamado de módulo. Módulos são um conjunto de códigos como funções, classes, variáveis, etc.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Exemplo 1
+#import math
+</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Digite o numero: '</span><span class="p">))</span>
+<span class="c1">#raiz = math.sqrt(num)
+</span><span class="n">raiz</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'A raiz quadrada de {} é igual a {:.2f}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">raiz</span><span class="p">))</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="kn">import</span> <span class="nn">emoji</span>
+<span class="k">print</span><span class="p">(</span><span class="n">emoji</span><span class="p">.</span><span class="n">emojize</span><span class="p">(</span><span class="s">"Ola mundo :earth_americas:"</span><span class="p">,</span> <span class="n">use_aliases</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="pyinstaller---gerando-executaveis">PyInstaller - Gerando executaveis</h2>
+
+<hr />
+<p>Fonte: https://pypi.org/project/pyinstaller</p>
+
+<p>PyInstaller agrupa um aplicativo Python e todas as suas dependências em <strong>um único pacote</strong>. O usuário pode executar o aplicativo empacotado sem instalar um interpretador Python ou quaisquer módulos.</p>
+
+<p>PyInstaller lê um script Python escrito por você. Ele analisa seu código para descobrir todos os outros módulos e bibliotecas de que seu script precisa para ser executado. Em seguida, ele coleta cópias de todos esses arquivos - incluindo o interpretador Python ativo! - e os coloca com seu script em uma única pasta ou, opcionalmente, em um único arquivo executável.</p>
+
+<p>PyInstaller foi testado em Windows, Mac OS X e GNU / Linux. No entanto, não é um compilador cruzado: para fazer um aplicativo do Windows, você executa o PyInstaller no Windows; para fazer um aplicativo GNU / Linux, você pode executá-lo em GNU / Linux, etc. O PyInstaller foi usado com sucesso com AIX, Solaris, FreeBSD e OpenBSD, mas não foi testado com eles como parte dos testes de integração contínua.</p>
+
+<h3 id="instalação-e-geração-exe">Instalação e geração .EXE</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">pyinstaller</span>
+<span class="n">pyinstaller</span> <span class="o">--</span><span class="n">onefile</span> <span class="n">Arquivo</span><span class="p">.</span><span class="n">py</span>
+<span class="c1">### Opção de execução em background
+</span><span class="n">pyinstaller</span> <span class="o">--</span><span class="n">onefile</span> <span class="o">--</span><span class="n">noconsole</span> <span class="n">Arquivo</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div></div>
+
+<h3 id="cores-no-terminal">Cores no Terminal</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+ANSI - escape sequence
+
+</span><span class="se">\033</span><span class="s">[style;text;backm
+
+Style
+0 - Nada
+1 - Negrito
+4 - Sublinhado
+7 - Negativo
+
+Text
+30 até 37
+
+Background
+40 a 47
+
+Estudar Modulo colorize ou outros...
+"""</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\033</span><span class="s">[1;30;47mOla Mundo</span><span class="se">\033</span><span class="s">[m'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\033</span><span class="s">[30mOla Mundo</span><span class="se">\033</span><span class="s">[m'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="recebendo-dados-usuário">Recebendo Dados Usuário</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+Recebendo dados do usuário
+input () -&gt; todo dado recebido via input é do tipo String
+Em Python, string é tudo que estiver entre:
+- Aspas simples;
+- Aspas Duplas;
+- Aspas simples triplas;
+- Aspas duplas triplas;
+Exemplos:
+- Aspas simples -&gt; 'Angelina Jolie'
+- Aspas duplas -&gt; "Anjelina Jolie"
+- Aspas simples triplas -&gt; '''Angelina Jolie'''
+"""</span>
+<span class="c1"># - Aspas duplas triplas -&gt; """Angelina Jolie"""
+</span>
+<span class="c1"># Entrada de dados
+#print("Qual seu nome?")
+#nome = input() #Input -&gt; Entrada =&gt;
+</span><span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Qual seu nome? '</span><span class="p">)</span>
+
+<span class="c1"># Exemplo de print 'antigo' 2.x
+#print('Seja bem vindo(a) %s' % nome)
+</span>
+<span class="c1"># Exemplo de print 'moderno' 3.x
+#print('seja bem vindo(a) {0}'.format(nome))
+</span>
+<span class="c1"># Exemplo de print 'mais atual' 3.7 &gt;
+</span><span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Seja bem vindo(a) </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1">#print("Qual sua idade?")
+#idade = input()
+#idade = input('Qual sua idade? ')
+</span><span class="n">idade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Qual sua idade? '</span><span class="p">))</span>
+
+<span class="c1"># Processamento
+</span>
+<span class="c1"># Saída
+# Exemplo de print 'antigo' 2.x
+#print('%s tem %s anos' % (nome, idade))
+</span>
+<span class="c1"># Exemplo de print 'moderno' 3.x
+#print(' Fulano(a) {0} tem {1} anos'.format(nome, idade))
+</span>
+<span class="c1"># Exemplo de print 'mais atual' 3.7 &gt;
+</span><span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Fulano(a) </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s"> tem </span><span class="si">{</span><span class="n">idade</span><span class="si">}</span><span class="s"> anos'</span><span class="p">)</span>
+
+<span class="s">"""
+# int(idade) =&gt; cast
+Cast é a 'conversão' de um tipo de dado para outro.
+Em nosso caso, string &gt; inteiro
+print(f'Fulano(a) {nome} nasceu em {2021 - int(idade)}')
+"""</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Fulano(a) </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s"> nasceu em </span><span class="si">{</span><span class="mi">2021</span> <span class="o">-</span> <span class="n">idade</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p><a href="./">back</a></p>
 

@@ -116,6 +116,131 @@ Esse tipo é inferido ao atribuirmos o valor a mesma.</p>
 <span class="kt">int</span> <span class="n">numero</span> <span class="o">=</span> <span class="mi">42</span><span class="o">;</span>
 </code></pre></div></div>
 
+<h2 id="variaveis-compostas">VARIAVEIS COMPOSTAS</h2>
+
+<p>Possibilidade de armazenar varios valores.</p>
+
+<p>##TUPLAS</p>
+
+<p>As tuplas são <strong>IMUTAVEIS</strong> após inicialização, ou seja, para mudar os valores somente parando / iniciando o programa novamente.</p>
+
+<p>As tuplas são representadas por aspas ()</p>
+
+<p>Há possibilidade de apagar a tupla com o comando <strong>del(tupla)</strong>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Indice
+</span><span class="n">lanche</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Hamburguer'</span><span class="p">,</span> <span class="s">'Pizza'</span><span class="p">,</span> <span class="s">'Suco'</span><span class="p">,</span> <span class="s">'Pudim'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lanche</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">pizza</span>
+
+<span class="c1"># Exemplo 1
+</span><span class="n">lanche</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Hamburguer'</span><span class="p">,</span> <span class="s">'Pizza'</span><span class="p">,</span> <span class="s">'Suco'</span><span class="p">,</span> <span class="s">'Pudim'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">comida</span> <span class="ow">in</span> <span class="n">lanche</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'eu vou comer </span><span class="si">{</span><span class="n">comida</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Comi demais!'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="n">lanche</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Hamburguer'</span><span class="p">,</span> <span class="s">'Pizza'</span><span class="p">,</span> <span class="s">'Suco'</span><span class="p">,</span> <span class="s">'Pudim'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lanche</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">lanche</span><span class="p">[</span><span class="n">cont</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Comi demais!'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 3
+</span><span class="n">lanche</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Hamburguer'</span><span class="p">,</span> <span class="s">'Pizza'</span><span class="p">,</span> <span class="s">'Suco'</span><span class="p">,</span> <span class="s">'Pudim'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">posicao</span><span class="p">,</span> <span class="n">comida</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lanche</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Vou comer </span><span class="si">{</span><span class="n">comida</span><span class="si">}</span><span class="s"> na posição </span><span class="si">{</span><span class="n">posicao</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+<h3 id="listas">LISTAS</h3>
+<p>Listas em Python funcionam como vetores/matrizes (arrays) em outras linguagens, com a diferença de serem <strong>dinâmicos</strong> e também de podermos colocar <strong>qualquer tipo de dado</strong>.</p>
+
+<ul>
+  <li>Dinâmico: não possuem tamanho fixo; Ou seja, podemos criar a lista e simplesmente adicionar novos elementos.</li>
+  <li>Qualquer tipo de dado: as listas não possuem tipo de dado fixo; Ou seja, podemos colocar qualquer tipo de dado</li>
+</ul>
+
+<p>As listas em python são representadas por <strong>colchetes []</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lista1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">lista2</span> <span class="o">=</span> <span class="p">[</span><span class="s">'G'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'k'</span><span class="p">]</span>
+<span class="n">lista3</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">lista4</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">lista5</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s">'Geek'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 1
+</span><span class="n">num</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">lista4</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei o numero </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 2
+</span><span class="n">palavra</span> <span class="o">=</span> <span class="n">Geek</span>
+<span class="k">if</span> <span class="n">nome</span> <span class="ow">in</span> <span class="n">lista4</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei a palavra </span><span class="si">{</span><span class="n">palavra</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 3
+</span><span class="n">letra</span> <span class="o">=</span> <span class="s">'e'</span>
+<span class="k">if</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">lista5</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei a letra </span><span class="si">{</span><span class="n">letra</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 4
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">lista1</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">lista1</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">lista1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># Adicionando dados no final da lista com append (1 elemento por vez)
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">'novo valor'</span><span class="p">)</span> <span class="c1"># Adicionando valor em posições do indice (não substitui valor inicial)
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">127</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">95</span><span class="p">])</span> <span class="c1"># Adicionando varios dados no final da lista com extend
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># Remove ultimo elemento da lista e retorna em tela.
+</span><span class="n">lista1</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># Remove todos os elementos.
+</span><span class="n">nova_lista</span> <span class="o">=</span> <span class="n">lista1</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># Copiando listas
+</span>
+<span class="c1"># Exemplo 5 ==&gt; Iterando sobre listas
+</span><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 6 ==&gt; Utilizando While
+</span><span class="n">carrinho</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">produto</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">while</span> <span class="n">produto</span> <span class="o">!=</span> <span class="s">'sair'</span><span class="p">:</span>
+    <span class="n">produto</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Adicione um produto ou digite sair para sair: '</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">produto</span> <span class="o">!=</span> <span class="s">'sair'</span><span class="p">:</span>
+        <span class="n">carrinho</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">produto</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">carrinho</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 7 ==&gt; Gerar indice de cores
+</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[</span><span class="s">'verde'</span><span class="p">,</span> <span class="s">'amarelo'</span><span class="p">,</span> <span class="s">'vermelho'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">indice</span><span class="p">,</span> <span class="n">cor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cores</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">indice</span><span class="p">,</span> <span class="n">cor</span><span class="p">)</span>
+
+<span class="c1"># Exemplo 8 ==&gt; descorbrir indice de um produto
+</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Gol'</span><span class="p">,</span> <span class="s">'Renault'</span><span class="p">,</span> <span class="s">'Fiat'</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cores</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="s">'Fiat'</span><span class="p">))</span>
+
+<span class="c1">#Exemplo 9
+</span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Soma
+</span><span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Máximo valor
+</span><span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Minimo  Valor
+</span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Tamanho da lista
+</span><span class="n">lista_nova</span> <span class="o">=</span> <span class="n">lista</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># Deep Copy
+</span><span class="n">lista_nova</span> <span class="o">=</span> <span class="n">lista</span> <span class="c1"># Shallow Copy
+</span>
+<span class="c1"># Slice de indice
+</span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h3 id="dicionarios">DICIONARIOS</h3>
+<p>PENDENTE</p>
+
+<hr />
+
 <h2 id="operadores-matemáticos">OPERADORES MATEMÁTICOS</h2>
 
 <p>O Python pode ser utilizado como uma calculadora matemática avançada. Praticamente, todos os operadores aritméticos funcionam da mesma forma como os conhecemos da matemática elementar. Por exemplo, para trabalharmos com as 4 principais funções matemáticas, a soma, subtração, multiplicação e divisão, temos os operadores conforme tabela a seguir.</p>
@@ -351,9 +476,10 @@ print('='*50)
 
 <span class="c1">#Forma 4 (Inversa)
 </span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </code></pre></div></div>
 <hr />
+
 <h2 id="estruturas-de-repeticao">ESTRUTURAS DE REPETICAO</h2>
 
 <p>As estruturas de repetição (também conhecidas como laços ou loops) geralmente são utilizadas para processar uma coleção de dados, linhas de um arquivo, registros de um banco de dados que precisam ser processados por um mesmo bloco de código.</p>
@@ -550,79 +676,6 @@ Pega
 <span class="k">print</span><span class="p">(</span><span class="s">'sai do loop'</span><span class="p">)</span>
 </code></pre></div></div>
 <hr />
-
-<h2 id="coleções-python">COLEÇÕES PYTHON</h2>
-
-<h3 id="listas">LISTAS</h3>
-<p>Listas em Python funcionam como vetores/matrizes (arrays) em outras linguagens, com a diferença de serem <strong>dinâmicos</strong> e também de podermos colocar <strong>qualquer tipo de dado</strong>.</p>
-
-<ul>
-  <li>Dinâmico: não possuem tamanho fixo; Ou seja, podemos criar a lista e simplesmente adicionar novos elementos.</li>
-  <li>Qualquer tipo de dado: as listas não possuem tipo de dado fixo; Ou seja, podemos colocar qualquer tipo de dado</li>
-</ul>
-
-<p>As listas em python são representadas por <strong>colchetes []</strong></p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lista1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="n">lista2</span> <span class="o">=</span> <span class="p">[</span><span class="s">'G'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'k'</span><span class="p">]</span>
-<span class="n">lista3</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">lista4</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
-<span class="n">lista5</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s">'Geek'</span><span class="p">)</span>
-
-<span class="c1"># Exemplo 1
-</span><span class="n">num</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">lista4</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei o numero </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
-
-<span class="c1"># Exemplo 2
-</span><span class="n">palavra</span> <span class="o">=</span> <span class="n">Geek</span>
-<span class="k">if</span> <span class="n">nome</span> <span class="ow">in</span> <span class="n">lista4</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei a palavra </span><span class="si">{</span><span class="n">palavra</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
-
-<span class="c1"># Exemplo 3
-</span><span class="n">letra</span> <span class="o">=</span> <span class="s">'e'</span>
-<span class="k">if</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">lista5</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Encontrei a letra </span><span class="si">{</span><span class="n">letra</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Não encontrei'</span><span class="p">)</span>
-
-<span class="c1"># Exemplo 4
-</span><span class="n">lista1</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">lista1</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">lista1</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
-<span class="n">lista1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># Adicionando dados no final da lista com append (1 elemento por vez)
-</span><span class="n">lista1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">'novo valor'</span><span class="p">)</span> <span class="c1"># Adicionando valor em posições do indice (não substitui valor inicial)
-</span><span class="n">lista1</span><span class="p">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">127</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">95</span><span class="p">])</span> <span class="c1"># Adicionando varios dados no final da lista com extend
-</span><span class="n">lista1</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># Remove ultimo elemento da lista e retorna em tela.
-</span><span class="n">lista1</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># Remove todos os elementos.
-</span><span class="n">nova_lista</span> <span class="o">=</span> <span class="n">lista1</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># Copiando listas
-</span>
-<span class="c1"># Exemplo 5 ==&gt; Iterando sobre listas
-</span><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
-
-<span class="c1"># Exemplo 6 ==&gt; Utilizando While
-</span><span class="n">carrinho</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">produto</span> <span class="o">=</span> <span class="s">''</span>
-<span class="k">while</span> <span class="n">produto</span> <span class="o">!=</span> <span class="s">'sair'</span><span class="p">:</span>
-    <span class="n">produto</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Adicione um produto ou digite sair para sair: '</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">produto</span> <span class="o">!=</span> <span class="s">'sair'</span><span class="p">:</span>
-        <span class="n">carrinho</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">produto</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">carrinho</span><span class="p">)</span>
-
-<span class="c1"># Exemplo 7 ==&gt; Gerar indice de cores
-</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[</span><span class="s">'verde'</span><span class="p">,</span> <span class="s">'amarelo'</span><span class="p">,</span> <span class="s">'vermelho'</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">indice</span><span class="p">,</span> <span class="n">cor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cores</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">indice</span><span class="p">,</span> <span class="n">cor</span><span class="p">)</span>
-
-<span class="c1"># Exemplo 8 ==&gt; descorbrir indice de um produto
-</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Gol'</span><span class="p">,</span> <span class="s">'Renault'</span><span class="p">,</span> <span class="s">'Fiat'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">cores</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="s">'Fiat'</span><span class="p">))</span>
-</code></pre></div></div>
 
 <h3 id="dir--help">DIR / HELP</h3>
 

@@ -1,0 +1,734 @@
+##### Infraestrutura
+
+Segue abaixo documentação da nova infraestrutura em Cluster.
+
+-   \*\*Desenvolvimento\*\*
+
+\|\*\*SERVIDOR\*\* \|\*\*ENDEREÇO IP\*\* \|\*\*FUNÇÃO\*\* \|\*\*CPU\*\*
+\|\*\*RAM\*\* \|\*\*DISCO\*\* \|
+\|VMHOMAPP-ESC01\|172.31.22.4\|Frontend/backend/NFS\|4\|16 GB\|S.O +100
+GB\| \|VMHOMAPP-ESC02\|172.31.22.5\|Frontend/backend\|4\|16 GB\|S.O + 30
+GB\| \|VMHOMAPP-ESC03\|172.31.22.6\|sys (controle)\|2\|4 GB\|S.O + 30
+GB\| \|VMHOMAPP-ESC04\|172.31.22.7\|sys (controle)\|2\|4 GB\|S.O + 30
+GB\| \|VMHOMAPP-ESCELA01\|172.31.22.8\|Elastic\|4\|16 GB\|S.O + 100 GB\|
+\|VMHOMAPP-ESCELA02\|172.31.22.9\|Elastic\|4\|16 GB\|S.O + 100 GB\|
+\|VMHOMAPP-ESCELA03\|172.31.22.10\|Elastic\|4\|16 GB\|S.O + 100 GB\|
+\|VMHOMDB-ESCMONGO01\|172.31.22.11\|Database\|4\|16 GB\|S.O + 100 GB\|
+\|VMHOMDB-ESCMONGO02\|172.31.22.12\|Database\|4\|16 GB\|S.O + 100 GB\|
+\|VMHOMDB-ESCMONGO03\|172.31.22.13\|Database\|2\|4 GB\|S.O + 100 GB\|
+
+-   \*\*Produção\*\*
+
+\|\*\*SERVIDOR\*\* \|\*\*ENDEREÇO IP\*\* \|\*\*FUNÇÃO\*\* \|\*\*CPU\*\*
+\|\*\*RAM\*\* \|\*\*DISCO\*\* \|
+\|VMPRDAPP-ESC01\|172.31.24.4\|Frontend/backend\|8\|32 GB\|S.O + 50 GB\|
+\|VMPRDAPP-ESC02\|172.31.24.5\|Frontend/backend\|8\|32 GB\|S.O + 50 GB\|
+\|VMPRDAPP-ESC03\|172.31.24.6\|sys (controle)\|2\|4 GB\|S.O + 50 GB\|
+\|VMPRDAPP-ESC04\|172.31.24.7\|sys (controle)\|2\|4 GB\|S.O + 50 GB\|
+\|VMPRDAPP-ESCELA01\|172.31.24.8\|Elastic\|8\|16 GB\|S.O + 150 GB\|
+\|VMPRDAPP-ESCELA02\|172.31.24.9\|Elastic\|8\|16 GB\|S.O + 150 GB\|
+\|VMPRDAPP-ESCELA03\|172.31.24.10\|Elastic\|8\|16 GB\|S.O + 150 GB\|
+\|VMPRDDB-ESCMONGO01\|172.31.24.11\|Database\|4\|16 GB\|S.O + 350 GB\|
+\|VMPRDDB-ESCMONGO02\|172.31.24.12\|Database\|4\|16 GB\|S.O + 750 GB\|
+\|VMPRDDB-ESCMONGO03\|172.31.24.13\|Database\|2\|4 GB\|S.O + 200 GB\|
+\|VMPRDAPP-ESCFILES\|172.31.24.14\|Armazenmento de arquivos NFS\|4\|4
+GB\|S.O + 1.5 TB\|
+
+##### URL
+
+-   -   Desenvolvimento\*\*
+
+[<https://devservicodigital.curitiba.pr.gov.br>](https://devservicodigital.curitiba.pr.gov.br "wikilink")\\\\
+[<https://homservicodigital.curitiba.pr.gov.br>](https://homservicodigital.curitiba.pr.gov.br "wikilink")\\\\
+[<https://dev-pmcdigital.curitiba.pr.gov.br>](https://dev-pmcdigital.curitiba.pr.gov.br "wikilink")\\\\
+[<https://hom-pmcdigital.curitiba.pr.gov.br>](https://hom-pmcdigital.curitiba.pr.gov.br "wikilink")
+
+-   -   Produção\*\*
+
+[<https://servicodigital.curitiba.pr.gov.br>](https://servicodigital.curitiba.pr.gov.br "wikilink")\\\\
+[<https://servicodigitalservidor.curitiba.pr.gov.br>](https://servicodigitalservidor.curitiba.pr.gov.br "wikilink")\\\\
+[<https://pmcdigital.curitiba.pr.gov.br>](https://pmcdigital.curitiba.pr.gov.br "wikilink")
+
+##### Elasticsearch
+
+Documentação da instalação do cluster Elasticsearch executada em
+conjunto com o Analista Eduardo da empresa Sydle no dia
+\*\*19/05/2022\*\*
+
+-   -   OBS\*\*: Efetuamos a instalação juntamente com a Sydle, seguindo
+        as boas praticas e recomendações repassadas em videoconferência.
+
+Segue em anexo documentação original encaminhada por e-mail ⇒
+`{{:linux:solucoes:install_elasticsearch.txt|install_elasticsearch.txt}}`{=mediawiki}
+
+Hardware utilizado seguindo a recomendação da Sydle
+
+` * 4 x Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz`\
+` * 16 GB Memória RAM`\
+` * 30 GB sistema operacional / 100 GB para o diretório /var/lib/elasticsearch`
+
+-   -   OBS\*\*: configuração sugerida não foi suficiente, sendo
+        necessário upgrade. Consulte o menu infraestrutura
+
+Os passos para preparação do ambiente, instalação e configuração devem
+ser executadas nos três servidores simultaneamente
+
+`<code bash>`{=html}
+
+1.  Ajustes S.O
+
+vim /etc/security/limits.conf elasticsearch - nofile 999999
+elasticsearch soft memlock unlimited elasticsearch hard memlock
+unlimited
+
+vim /etc/sysctl.conf vm.max_map_count=262144 vm.swappiness = 1
+
+sysctl -p
+
+sed -i \'s/SELINUX=enforcing/SELINUX=disabled/g\' /etc/selinux/config
+
+1.  Instalação>\> arquivos disponíveis no owncloud>\> Soluções
+    Tecnicas\\Servers Linux\\Sydle
+
+rpm -ivh jdk-11.0.15_linux-x64_bin.rpm
+
+rpm -ivh elasticsearch-7.6.2-x86_64.rpm chown -R
+elasticsearch.elasticsearch /var/lib/elasticsearch
+
+vim /usr/lib/systemd/system/elasticsearch.service LimitNOFILE=999999
+LimitNPROC=65536 LimitMEMLOCK=infinity
+
+systemctl daemon-reload systemctl enable elasticsearch.service
+
+1.  Editar configuração do Elasticsearch em todos os nodes -- (Exemplo)
+
+cat /etc/elasticsearch/elasticsearch.yml cluster.name:
+sydleone-cluster-hom node.name: VMHOMAPP-ESCELA01 node.master: true
+node.data: true node.ingest: false bootstrap.memory_lock: true
+network.host: VMHOMAPP-ESCELA01 http.port: 9200 transport.tcp.port: 9300
+discovery.zen.ping.unicast.hosts:
+\[\"VMHOMAPP-ESCELA01\",\"VMHOMAPP-ESCELA02\",\"VMHOMAPP-ESCELA03\"\]
+action.destructive_requires_name: false bootstrap.system_call_filter:
+false action.auto_create_index:
+\".watches,.triggered_watches,.watcher-history-\*\" path.logs:
+/var/log/elasticsearch path.data: /var/lib/elasticsearch
+cluster.initial_master_nodes: VMHOMAPP-ESCELA01, VMHOMAPP-ESCELA02,
+VMHOMAPP-ESCELA03 discovery.zen.minimum_master_nodes: 2
+gateway.recover_after_nodes: 2 gateway.expected_nodes: 3
+gateway.recover_after_time: 10m http.max_initial_line_length : 10mb
+cluster.routing.allocation.disk.threshold_enabled: true
+cluster.routing.allocation.disk.watermark.low: \"90%\"
+cluster.routing.allocation.disk.watermark.high: \"95%\"
+cluster.routing.allocation.disk.watermark.flood_stage: \"99%\"
+indices.query.bool.max_clause_count: 3000
+
+vim /etc/elasticsearch/jvm.options
+
+1.  Xms represents the initial size of total heap space
+2.  Xmx represents the maximum size of total heap space
+
+-Xms11g -Xmx11g
+
+1.  G1GC Configuration
+2.  NOTE: G1 GC is only supported on JDK version 10 or later
+3.  to use G1GC, uncomment the next two lines and update the version on
+    the
+4.  following three lines to your version of the JDK
+
+10-13:-XX:-UseConcMarkSweepGC 10-13:-XX:-UseCMSInitiatingOccupancyOnly
+11-:-XX: UseG1GC 11-:-XX:G1ReservePercent=25
+11-:-XX:InitiatingHeapOccupancyPercent=30
+
+1.  CVE-2021-44228 (log4j2)
+
+-Dlog4j2.formatMsgNoLookups=true
+
+1.  Iniciar serviço em todos os nodes
+
+systemctl start elasticsearch.service
+
+1.  Alterar parametros persistentes no node VMHOMAPP-ESCELA01
+
+curl -H \'Content-Type: application/json\' -XPUT
+\"<http://$HOSTNAME:9200/_cluster/settings>\" -d \'{
+
+`   "persistent": {`\
+`         "cluster.routing.allocation.node_concurrent_incoming_recoveries": "20",`\
+`         "cluster.routing.allocation.cluster_concurrent_rebalance": "20",`\
+`         "cluster.routing.allocation.node_concurrent_recoveries": "20",`\
+`         "cluster.routing.allocation.node_initial_primaries_recoveries": "40",`\
+`         "cluster.routing.allocation.node_concurrent_outgoing_recoveries": "20",`\
+`         "cluster.max_shards_per_node": "30000",`\
+`         "indices.recovery.max_bytes_per_sec": "100mb",`\
+`         "action.search.shard_count.limit": "3000",`\
+`         "search.max_buckets": 100000,`\
+`         "cluster.routing.allocation.disk.threshold_enabled": "true",`\
+`         "cluster.routing.allocation.disk.watermark.low": "90%",`\
+`         "cluster.routing.allocation.disk.watermark.high": "95%",`\
+`         "cluster.routing.allocation.disk.watermark.flood_stage": "99%"`\
+`    }`
+
+}\'
+
+1.  Testar serviço no node VMHOMAPP-ESCELA01
+
+\[root\@VMHOMAPP-ESCELA01 \~\]\# curl \"\$HOSTNAME\":9200 {
+
+` "name" : "VMHOMAPP-ESCELA01",`\
+` "cluster_name" : "sydleone-cluster-hom",`\
+` "cluster_uuid" : "fUju0zLpQ5yLiaSUsfEj5w",`\
+` "version" : {`\
+`   "number" : "7.6.2",`\
+`   "build_flavor" : "default",`\
+`   "build_type" : "rpm",`\
+`   "build_hash" : "ef48eb35cf30adf4db14086e8aabd07ef6fb113f",`\
+`   "build_date" : "2020-03-26T06:34:37.794943Z",`\
+`   "build_snapshot" : false,`\
+`   "lucene_version" : "8.4.0",`\
+`   "minimum_wire_compatibility_version" : "6.8.0",`\
+`   "minimum_index_compatibility_version" : "6.0.0-beta1"`\
+` },`\
+` "tagline" : "You Know, for Search"`
+
+}
+
+root\@VMHOMAPP-ESCELA01 \~\]\# curl \"\$HOSTNAME\":9200/\_cat/nodes?v ip
+heap.percent ram.percent cpu load_1m load_5m load_15m node.role master
+name 172.19.208.227 4 75 0 0.00 0.01 0.05 dlm \* VMHOMAPP-ESCELA02
+172.19.208.234 3 75 0 0.00 0.01 0.05 dlm - VMHOMAPP-ESCELA03
+172.19.210.225 3 75 0 0.00 0.01 0.05 dlm - VMHOMAPP-ESCELA01
+
+\[root\@VMHOMAPP-ESCELA01 \~\]\# curl \"\$HOSTNAME\":9200/\_cat/health
+1652985296 18:34:56 sydleone-cluster-hom green 3 3 0 0 0 0 0 0 - 100.0%
+
+`</code>`{=html}
+
+O elasticsearch funciona através das portas \*\*TCP 9200 e 9300\*\*
+
+-   -   Visualizar tamanho dos indices\*\*
+
+`curl '`[`http://172.31.31.199:9200/_cat/indices/?pretty&s=store.size:desc`](http://172.31.31.199:9200/_cat/indices/?pretty&s=store.size:desc)`' | more`
+
+##### Tomcat
+
+Documentação da instalação do webserver Tomcat executada em conjunto com
+o Analista Eduardo Legatti da empresa Sydle no dia \*\*24/05/2022\*\*
+
+-   -   OBS\*\*: Efetuamos a instalação juntamente com a Sydle, seguindo
+        as boas praticas e recomendações repassadas em videoconferência.
+
+`<code bash>`{=html}
+
+1.  Java
+
+/usr/local/jdk1.8.0_202
+
+1.  Tomcat
+
+/usr/local/apache-tomcat-8.5.79
+
+1.  Link Simbólico
+
+ls -l /usr/local/ lrwxrwxrwx 1 root root 12 May 24 14:15 jdk8 -\>
+jdk1.8.0_202 lrwxrwxrwx 1 deployer deployer 20 May 24 14:16 tomcat8 -\>
+apache-tomcat-8.5.79
+
+1.  script inicialização
+
+vim /etc/init.d/tomcat8 chmod x /etc/init.d/tomcat8 chkconfig tomcat8 on
+
+1.  Remoção de todas as aplicações default
+
+rm -rf /usr/local/tomcat8/webapps/\*
+
+`</code>`{=html}
+
+`<code bash>`{=html}
+
+1.  Configurações efetuada no arquivo /usr/local/tomcat8/bin/catalina.sh
+2.  Servidores VMHOMAPP-ESC01 e VMHOMAPP-ESC02
+
+JAVA_HOME=/usr/local/jdk8
+
+CATALINA_OPTS=\"-server -Xms12000M -Xmx12000M -XX:
+UseStringDeduplication -XX: UseG1GC -XX:MaxGCPauseMillis=200
+-XX:ParallelGCThreads=4 -XX:ConcGCThreads=4
+-XX:InitiatingHeapOccupancyPercent=60 -Dfile.encoding=ISO8859_1
+-Dmail.encoding=ISO8859_1 -Djava.awt.headless=true
+-Djava.rmi.server.hostname=172.19.210.212 -Dcom.sun.management.jmxremote
+-Dcom.sun.management.jmxremote.port=8010
+-Dcom.sun.management.jmxremote.local.only=false
+-Dcom.sun.management.jmxremote.authenticate=false
+-Dcom.sun.management.jmxremote.ssl=false\" `</code>`{=html}
+
+`<code bash>`{=html}
+
+1.  Configurações efetuada no arquivo /usr/local/tomcat8/bin/catalina.sh
+2.  Servidores VMHOMAPP-ESC03 e VMHOMAPP-ESC04
+
+JAVA_HOME=/usr/local/jdk8
+
+CATALINA_OPTS=\"-server -Xms3000M -Xmx3000M -XX: UseStringDeduplication
+-XX: UseG1GC -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=4
+-XX:ConcGCThreads=4 -XX:InitiatingHeapOccupancyPercent=60
+-Dfile.encoding=ISO8859_1 -Dmail.encoding=ISO8859_1
+-Djava.awt.headless=true -Djava.rmi.server.hostname=172.19.210.212
+-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8010
+-Dcom.sun.management.jmxremote.local.only=false
+-Dcom.sun.management.jmxremote.authenticate=false
+-Dcom.sun.management.jmxremote.ssl=false\" `</code>`{=html}
+
+##### NFS
+
+Montar NFS para armazenamento dos dados nos 4 servidores Tomcat =⇒
+/sydleone
+
+` * DEV = Usar a mesma infraestrutura de DEV`\
+` * PRD = Servidor dedicado NFS`
+
+-   -   Criando espaço especifico para armazenamento dos dados \*\*
+
+`<code bash>`{=html}
+
+1.  chmod x rescan_lun_scsi.sh
+2.  ./rescan_lun_scsi.sh
+3.  parted /dev/sdb
+4.  vgcreate vg_sydle /dev/sdb1
+5.  lvcreate -l 100%FREE -n lv_sydle vg_sydle
+6.  mkfs.xfs /dev/mapper/vg_sydle-lv_sydle
+7.  mkdir /sydleone
+
+```{=html}
+<!-- -->
+```
+1.  vim /etc/fstab
+
+/dev/mapper/vg_sydle-lv_sydle /sydleone xfs defaults 0 0
+`</code>`{=html}
+
+-   -   Instalação e configuração NFS \*\*
+
+`<code bash>`{=html}
+
+1.  yum install nfs-utils rpcbind
+2.  systemctl start rpcbind
+3.  systemctl start nfs-server
+4.  systemctl start nfs-lock
+5.  systemctl start nfs-idmap
+6.  systemctl status nfs
+
+```{=html}
+<!-- -->
+```
+1.  chmod -R 755 /sydleone/
+2.  chown nfsnobody:nfsnobody /sydleone/
+
+```{=html}
+<!-- -->
+```
+1.  vim /etc/exports
+
+/sydleone 172.19.210.214(rw,sync) /sydleone 172.19.210.221(rw,sync)
+/sydleone 172.19.210.224(rw,sync)
+
+1.  exportfs
+2.  systemctl restart nfs-server
+
+```{=html}
+<!-- -->
+```
+1.  showmount -e VMHOMAPP-ESC01
+
+Export list for VMHOMAPP-ESC01: /sydleone
+172.19.210.224,172.19.210.221,172.19.210.214 `</code>`{=html}
+
+Agora no cliente (máquina que irá montar o compartilhamento feito
+anteriormente) execute:
+
+`<code bash>`{=html}
+
+1.  yum install nfs-utils
+2.  usermod -a -G nfsnobody deployer
+3.  mkdir /sydleone
+4.  chown nfsnobody:nfsnobody /sydleone/
+5.  mount -t nfs vmhomapp-esc01:/sydleone /sydleone
+
+```{=html}
+<!-- -->
+```
+1.  vim /etc/fstab
+
+vmhomapp-esc01:/sydleone /sydleone nfs defaults 0 0 `</code>`{=html}
+
+##### Apache httpd {#apache_httpd}
+
+Os procedimentos devem ser executados em \*\*VMPRDAPP-ESC01\*\* e
+\*\*VMPRDAPP-ESC02\*\*
+
+`<code bash>`{=html}
+
+1.  yum install httpd -y
+2.  systemctl enable \--now httpd
+3.  rm -rf /usr/share/httpd/noindex/\*
+
+```{=html}
+<!-- -->
+```
+1.  vim /etc/httpd/conf/httpd.conf
+
+```{=html}
+<!-- -->
+```
+1.  TIMEZONE
+
+SetEnv TZ America/Sao_Paulo
+
+1.  SEGURANCA
+
+ServerSignature Off ServerTokens Prod TraceEnable Off `</code>`{=html}
+
+Configuração portal servicodigital.curitiba.pr.gov.br
+
+`<code bash>`{=html}
+
+1.  cat /etc/httpd/conf.d/portal-pmcdigital.conf
+
+\<VirtualHost \*:80>
+
+`   ServerName servicodigital.curitiba.pr.gov.br`\
+`   ServerAlias servicodigitalinterno.curitiba.pr.gov.br`\
+`   DocumentRoot /var/www/portal-pmcdigital-pmc-prd`\
+`   RemoteIPHeader X-Forwarded-For`
+
+`   ``<Directory /var/www/portal-pmcdigital-pmc-prd>`{=html}\
+`     Options Indexes FollowSymLinks`\
+`     Require all granted`\
+`     AllowOverride All`\
+`   ``</Directory>`{=html}
+
+`</VirtualHost>`{=html} `</code>`{=html}
+
+Configuração portal servicodigitalservidor.curitiba.pr.gov.br
+
+`<code bash>`{=html}
+
+1.  cat /etc/httpd/conf.d/servicodigitalservidor.conf
+
+\<VirtualHost \*:80>
+
+`   ServerName servicodigitalservidor.curitiba.pr.gov.br`\
+`   ServerAlias int-servicodigitalservidor.curitiba.pr.gov.br`\
+`   DocumentRoot /var/www/portal-pub-pmcdigital-pmc-prd`\
+`   RemoteIPHeader X-Forwarded-For`
+
+`   ``<Directory /var/www/portal-pub-pmcdigital-pmc-prd>`{=html}\
+`     Options Indexes FollowSymLinks`\
+`     Require all granted`\
+`     AllowOverride All`\
+`   ``</Directory>`{=html}
+
+`</VirtualHost>`{=html}
+
+`</code>`{=html}
+
+Efetuando \*\*backup\*\* dos portais em \*\*VMPRDAPP-ESCPROC\*\*
+
+`<code bash>`{=html}
+
+1.  cd /var/www
+2.  tar -zcvf /root/backup.tar.gz portal-pmcdigital-pmc-prd
+    portal-pub-pmcdigital-pmc-prd
+
+`</code>`{=html}
+
+Restore dos arquivos em \*\*VMPRDAPP-ESC01\*\* e \*\*VMPRDAPP-ESC02\*\*
+
+`<code bash>`{=html}
+
+1.  cd /var/www
+2.  tar -zxvf backup.tar.gz
+3.  rm -f backup.tar.gz
+
+`</code>`{=html}
+
+##### Load Balance {#load_balance}
+
+Executar configurações em \*\*LBHASOLUTION1\*\* e \*\*LBHASOLUTION2\*\*
+
+`<code bash>`{=html}
+
+1.  cat /etc/haproxy/haproxy.cfg
+
+`  use_backend pmcdigital.curitiba.pr.gov.br             if { hdr_dom(host) -i pmcdigital.curitiba.pr.gov.br }`\
+`  use_backend servicodigital.curitiba.pr.gov.br         if { hdr_dom(host) -i servicodigital.curitiba.pr.gov.br }`\
+`  use_backend servicodigitalservidor.curitiba.pr.gov.br if { hdr_dom(host) -i servicodigitalservidor.curitiba.pr.gov.br }`
+
+backend pmcdigital.curitiba.pr.gov.br
+
+`  option httpchk HEAD / HTTP/1.1\r\nHost:`
+
+pmcdigital.curitiba.pr.gov.br
+
+`  http-check expect status 200`\
+`  server server01 vmprdapp-esc01.curitiba.pr.gov.br:8080 weight 1 maxconn 200`\
+`  server server02 vmprdapp-esc02.curitiba.pr.gov.br:8080 weight 1 maxconn 200`
+
+backend servicodigital.curitiba.pr.gov.br
+
+`  option httpchk HEAD / HTTP/1.1\r\nHost: servicodigital.curitiba.pr.gov.br`\
+`  http-check expect status 200`\
+`  server server01 vmprdapp-esc01.curitiba.pr.gov.br:80 weight 1 maxconn 200`\
+`  server server02 vmprdapp-esc02.curitiba.pr.gov.br:80 weight 1 maxconn 200`
+
+backend servicodigitalservidor.curitiba.pr.gov.br
+
+`  option httpchk HEAD / HTTP/1.1\r\nHost: servicodigitalservidor.curitiba.pr.gov.br`\
+`  http-check expect status 200`\
+`  server server01 vmprdapp-esc01.curitiba.pr.gov.br:80 weight 1 maxconn 200`\
+`  server server02 vmprdapp-esc02.curitiba.pr.gov.br:80 weight 1 maxconn 200`
+
+`</code>`{=html}
+
+##### Gestão de mudança {#gestão_de_mudança}
+
+#### Resumo
+
+Será necessário alterar apontamento do proxy reverso. A infraestrutura
+standalone esta hospedada na solução nginx (\*\*vmprdprx-web\*\*)
+
+`<code bash>`{=html}
+
+1.  Sydle Java
+
+pmcdigital.curitiba.pr.gov.br \[172.31.10.40\] =>
+ep.curitiba.pr.gov.br:8443 \[172.31.31.180\]
+
+1.  Sydle PHP
+
+servicodigital.curitiba.pr.gov.br \[172.31.10.40\] =>
+servicodigitalinterno.curitiba.pr.gov.br \[172.31.31.180\]
+servicodigitalservidor.curitiba.pr.gov.br \[172.31.10.40\] =>
+int-servicodigitalservidor.curitiba.pr.gov.br \[172.31.31.180\]
+`</code>`{=html}
+
+A nova infraestrutura será hospedada no Haproxy (\*\*LBHASOLUTION\*\*)
+
+`<code bash>`{=html}
+
+1.  Sydle Java
+
+pmcdigital.curitiba.pr.gov.br \[172.31.10.17\] =>
+vmprdapp-esc01.curitiba.pr.gov.br:8080 \[172.31.24.4\]
+pmcdigital.curitiba.pr.gov.br \[172.31.10.17\] =>
+vmprdapp-esc02.curitiba.pr.gov.br:8080 \[172.31.24.5\]
+
+1.  Sydle PHP
+
+servicodigital.curitiba.pr.gov.br \[172.31.10.17\] =>
+vmprdapp-esc01.curitiba.pr.gov.br:80 \[172.31.24.4\]
+servicodigitalservidor.curitiba.pr.gov.br \[172.31.10.17\] =>
+vmprdapp-esc01.curitiba.pr.gov.br:80 \[172.31.24.5\] `</code>`{=html}
+
+#### Procedimento Operacional {#procedimento_operacional}
+
+Procedimentos a serem executados na \*\*infraestrutura standalone\*\*
+
+2 - Desabilitar Organização \\\\ 3 - Parar Tomcat VMPRDAPP-ESCPROC,
+VMPRDAPP-ESC01, VMPRDAPP-ESC02 \\\\ 4 - Parar MongoDB \\\\ 5 - Parar
+Elastic ⇒ \[root\@VMPRDAPP-INDEX \~\]\# systemctl stop elasticsearch
+\\\\ 6 - Replicação dos arquivos /sydleone
+
+`<code bash>`{=html} \[root\@VMPRDAPP-ESCPROC \~\]\# rsync /sydleone/
+-arvz -e \'ssh -p 6293\' \--progress \--delete
+root\@vmprdapp-escfiles.curitiba.pr.gov.br:/sydleone/
+
+\[root\@VMPRDAPP-ESCFILES \~\]\# chown -R nfsnobody:nfsnobody /sydleone/
+; chmod -R 775 /sydleone/ `</code>`{=html}
+
+7 - Replicação Elastic
+
+7.1 - Apagar todos os índices da estrutura nova \[
+\*\*VMPRDAPP-ESCELA01, VMPRDAPP-ESCELA02, VMPRDAPP-ESCELA03\*\* \]
+
+`<code bash>`{=html}
+
+1.  systemctl stop elasticsearch
+2.  rm -rf /var/lib/elasticsearch/\*
+
+`</code>`{=html}
+
+7.2 - Replicação dados \*\*VMPRDAPP-INDEX ⇒ VMPRDAPP-ESCELA01\*\*
+
+`<code bash>`{=html}
+
+1.  Replica
+
+\[root\@VMPRDAPP-INDEX \~\]\# rsync /var/lib/elasticsearch/ -arvz -e
+\'ssh -p 6293\' \--progress \--delete
+root\@vmprdapp-escela01.curitiba.pr.gov.br:/var/lib/elasticsearch/
+
+1.  Correção Permissões
+
+\[root\@VMPRDAPP-ESCELA01 \~\]\# chown -R elasticsearch.elasticsearch
+/var/lib/elasticsearch \[root\@VMPRDAPP-ESCELA01 \~\]\# rm -f
+/var/lib/elasticsearch/nodes/0/node.lock \[root\@VMPRDAPP-ESCELA01
+\~\]\# rm -f /var/lib/elasticsearch/nodes/0/\_state `</code>`{=html}
+
+7.3 - Iniciar Elastic / Validação
+
+`<code bash>`{=html} \[root\@VMPRDAPP-ESCELA01 \~\]\# systemctl start
+elasticsearch \[root\@VMPRDAPP-ESCELA02 \~\]\# systemctl start
+elasticsearch \[root\@VMPRDAPP-ESCELA03 \~\]\# systemctl start
+elasticsearch
+
+\[root\@VMPRDAPP-ESCELA01 \~\]\# curl
+\"<http://172.31.24.8:9200/_cat/health>\" `</code>`{=html}
+
+7.4 - Criação de replicas
+
+`<code bash>`{=html} \[root\@VMPRDAPP-ESCELA01 \~\]\# curl -H
+\'Content-Type: application/json\' -XPUT
+\"<http://$HOSTNAME:9200/*5d122d72727e59522b60c339>.\*/\_settings\" -d
+\'{\"index\" : {\"number_of_replicas\" : 1}}\'
+
+\[root\@VMPRDAPP-ESCELA01 \~\]\# curl -H \'Content-Type:
+application/json\' -XPUT
+\"<http://$HOSTNAME:9200/*000000000000111111111111>.\*/\_settings\" -d
+\'{\"index\" : {\"number_of_replicas\" : 1}}\'
+
+1.  Validação
+
+\[root\@VMPRDAPP-ESCELA01 \~\]\# curl
+\"<http://172.31.24.8:9200/_cat/allocation>\" \[root\@VMPRDAPP-ESCELA01
+\~\]\# curl
+\"<http://172.31.24.8:9200/_cat/indices/>\*?h=index,pri,rep,docs.count,docs.deleted,pri.store.size&s=pri.store.size:desc&v\"
+\[root\@VMPRDAPP-ESCELA01 \~\]\# curl
+\"<http://172.31.24.8:9200/_cat/health>\" `</code>`{=html}
+
+8 - Migração banco de dados MongoDB
+
+8.1 - Parar serviço do mongodb nos servidores \*\*VMPRDAPP-ECM
+(172.31.31.181), VMPRDAPP-ESCPROCRPL (172.31.31.183), VMPRDAPP-ESCPROC
+(172.31.31.180)\*\*
+
+`su - mongodb`
+`mongo --port 27017 --username "admin" --password "########" --authenticationDatabase "admin"`
+`use admin` `db.shutdownServer()`
+
+8.2 Copiar os binários e remover dados desatualizados nos servidores
+\*\*VMPRDDB-ESCMONGO01, VMPRDDB-ESCMONGO02, VMPRDDB-ESCMONGO03\*\*
+
+`cp -Ra /data/mongodb/mongodb-linux-x86_64-rhel70-4.2.17/ /data/ (temporariamente)`
+`rm -rf /data/mongodb/*`
+
+8.3 - Replicar dados
+
+`<code bash>`{=html}
+
+1.  Iniciar a cópia dentro do servidor VMPRDAPP-ESCPROCRPL
+    (172.31.31.183)
+
+time rsync -av \--delete -e \'ssh -p 6293\' /mongodb/data/\*
+root\@10.0.0.19:/data/mongodb
+
+1.  Devolver o diretório
+    /data/mongodb/mongodb-linux-x86_64-rhel70-4.2.17/ para o
+    /data/mongodb (servidores ESCMONGO)
+
+mv /data/mongodb-linux-x86_64-rhel70-4.2.17/ /data/mongodb/
+
+1.  Iniciar o serviço no nó Primário (VMPRDDB-ESCMONGO01)
+
+su - mongodb mongod \--fork \--config /etc/mongod.conf
+
+1.  Conectar no MongoDB
+
+mongo \--port 27017 \--username \"admin\" \--password \"########\"
+\--authenticationDatabase \"admin\"
+
+1.  Refazer a configuração do replicaset
+
+cfg = {\_id: \'sdlPrdSet\', members: \[
+
+`    {_id: 0, host: 'vmprddb-escmongo01:27017'},`\
+`    {_id: 1, host: 'vmprddb-escmongo02:27017'},`\
+`    {_id: 2, host: 'vmprddb-escmongo03:27017', arbiterOnly: true}]`
+
+}
+
+rs.reconfig(cfg, {force: true});
+
+1.  Acessar os servidores VMPRDDB-ESCMONGO02 e VMPRDDB-ESCMONGO03 e
+    iniciar os serviços
+
+mv /data/mongodb-linux-x86_64-rhel70-4.2.17/ /data/mongodb/ su - mongodb
+mongod \--fork \--config /etc/mongod.conf
+
+1.  Alterar a prioridade do secondary para fazer failback automático
+    caso o nó 1 caia e volte depois
+
+cfg = rs.conf(); cfg.members\[1\].priority = 0.5; rs.reconfig(cfg);
+
+1.  Obs.: Durante a cópia para o servidor secundário, o status ficará
+    sdlPrdSet:STARTUP2
+
+```{=html}
+<!-- -->
+```
+1.  Após a cópia dos dados, fazer as alterações nas bases escmongo
+    (usando o nó primário)
+
+use 000000000000111111111111
+
+db.getCollection(\'000000002337c25acecc394e\').update({\"\_id\" :
+ObjectId(\"000000000000000331111111\")},{\"\$set\":
+{\"5da721852337c25acecc3922\":
+\"[mongodb://sydleone:sydleonep101\@VMPRDDB-ESCMONGO01:27017,VMPRDDB-ESCMONGO02:27017/?connectTimeoutMS=300000](mongodb://sydleone:sydleonep101@VMPRDDB-ESCMONGO01:27017,VMPRDDB-ESCMONGO02:27017/?connectTimeoutMS=300000)\"}})
+
+db.getCollection(\'000000002337c25acecc38cc\').update({\"\_id\" :
+ObjectId(\"000000000000000221111111\")},{\"\$set\":
+{\"5da71e5b2337c25acecc38c0\": \"cluster-sydleone\"}})
+
+db.getCollection(\'000000002337c25acecc38cc\').update({\"\_id\" :
+ObjectId(\"000000000000000221111111\")},{\"\$set\":
+{\"5da71e912337c25acecc38c4\": \[ \"<http://VMPRDAPP-ESCELA01:9200>\",
+\"<http://VMPRDAPP-ESCELA02:9200>\", \"<http://VMPRDAPP-ESCELA03:9200>\"
+\]}})
+
+1.  Desabilitar organização
+
+db.getCollection(\'000000000000000000000333\').updateOne({
+
+` _id: ObjectId('5d122d72727e59522b60c339')`
+
+},{
+
+` $set: {`\
+`     "5d9f5cf5f5730067840dc3c3" : false`\
+` }`
+
+}) `</code>`{=html}
+
+9 - Iniciar a aplicação Java em \*\* VMPRDAPP-ESC01, VMPRDAPP-ESC02,
+VMPRDAPP-ESC03, VMPRDAPP-ESC04 \*\*
+
+`<code bash>`{=html}
+
+1.  systemctl start tomcat8
+
+`</code>`{=html}
+
+10 - Alteração de registros DNS
+
+` * pmcdigital.curitiba.pr.gov.br ⇒ 172.31.10.17`\
+` * pmcdigital.curitiba.pr.gov.br ⇒ 177.125.179.67`\
+` * servicodigital.curitiba.pr.gov.br ⇒ 172.31.10.17`\
+` * servicodigital.curitiba.pr.gov.br ⇒ 177.125.179.67`\
+` * servicodigitalservidor.curitiba.pr.gov.br ⇒ 172.31.10.17`\
+` * servicodigitalservidor.curitiba.pr.gov.br ⇒ 177.125.179.67`
+
+##### Troubleshooting
+
+[<http://server:8080/system/sys/admin>](http://server:8080/system/sys/admin "wikilink")
+
+\\\\

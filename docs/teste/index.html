@@ -31,15 +31,6 @@
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href=".." class="nav-link">Index</a>
-                            </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Teste</a>
-                            </li>
-                        </ul>
 
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
@@ -47,16 +38,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" href=".." class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                             <li class="nav-item">
                                 <a href="https://github.com/AlexHinckel/docs/edit/master/docs/teste.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
@@ -78,16 +59,413 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#page-test" class="nav-link">Page Test</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#commands" class="nav-link">Commands</a>
+            <li class="nav-item" data-level="1"><a href="#ajustes-so" class="nav-link">Ajustes S.O</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+            
+            <li class="nav-item" data-level="1"><a href="#instalacao-arquivos-disponiveis-no-owncloud-solucoes-tecnicasservers-linuxsydle" class="nav-link">Instalação&gt;&gt; arquivos disponíveis no owncloud&gt;&gt; Soluções Tecnicas\Servers Linux\Sydle</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-level="1"><a href="#editar-configuracao-do-elasticsearch-em-todos-os-nodes-exemplo" class="nav-link">Editar configuração do Elasticsearch em todos os nodes – (Exemplo)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#xms-represents-the-initial-size-of-total-heap-space" class="nav-link">Xms represents the initial size of total heap space</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#xmx-represents-the-maximum-size-of-total-heap-space" class="nav-link">Xmx represents the maximum size of total heap space</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#g1gc-configuration" class="nav-link">G1GC Configuration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#note-g1-gc-is-only-supported-on-jdk-version-10-or-later" class="nav-link">NOTE: G1 GC is only supported on JDK version 10 or later</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#to-use-g1gc-uncomment-the-next-two-lines-and-update-the-version-on-the" class="nav-link">to use G1GC, uncomment the next two lines and update the version on the</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#following-three-lines-to-your-version-of-the-jdk" class="nav-link">following three lines to your version of the JDK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#cve-2021-44228-log4j2" class="nav-link">CVE-2021-44228 (log4j2)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#iniciar-servico-em-todos-os-nodes" class="nav-link">Iniciar serviço em todos os nodes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#alterar-parametros-persistentes-no-node-vmhomapp-escela01" class="nav-link">Alterar parametros persistentes no node VMHOMAPP-ESCELA01</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#testar-servico-no-node-vmhomapp-escela01" class="nav-link">Testar serviço no node VMHOMAPP-ESCELA01</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#java" class="nav-link">Java</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#tomcat" class="nav-link">Tomcat</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#link-simbolico" class="nav-link">Link Simbólico</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#script-inicializacao" class="nav-link">script inicialização</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#remocao-de-todas-as-aplicacoes-default" class="nav-link">Remoção de todas as aplicações default</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#configuracoes-efetuada-no-arquivo-usrlocaltomcat8bincatalinash" class="nav-link">Configurações efetuada no arquivo /usr/local/tomcat8/bin/catalina.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#servidores-vmhomapp-esc01-e-vmhomapp-esc02" class="nav-link">Servidores VMHOMAPP-ESC01 e VMHOMAPP-ESC02</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#configuracoes-efetuada-no-arquivo-usrlocaltomcat8bincatalinash_1" class="nav-link">Configurações efetuada no arquivo /usr/local/tomcat8/bin/catalina.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#servidores-vmhomapp-esc03-e-vmhomapp-esc04" class="nav-link">Servidores VMHOMAPP-ESC03 e VMHOMAPP-ESC04</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#chmod-x-rescan_lun_scsish" class="nav-link">chmod  x rescan_lun_scsi.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#rescan_lun_scsish" class="nav-link">./rescan_lun_scsi.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#parted-devsdb" class="nav-link">parted /dev/sdb</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#vgcreate-vg_sydle-devsdb1" class="nav-link">vgcreate vg_sydle /dev/sdb1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#lvcreate-l-100free-n-lv_sydle-vg_sydle" class="nav-link">lvcreate -l 100%FREE -n lv_sydle vg_sydle</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#mkfsxfs-devmappervg_sydle-lv_sydle" class="nav-link">mkfs.xfs /dev/mapper/vg_sydle-lv_sydle</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#mkdir-sydleone" class="nav-link">mkdir /sydleone</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#vim-etcfstab" class="nav-link">vim /etc/fstab</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#yum-install-nfs-utils-rpcbind" class="nav-link">yum install nfs-utils rpcbind</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-start-rpcbind" class="nav-link">systemctl start rpcbind</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-start-nfs-server" class="nav-link">systemctl start nfs-server</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-start-nfs-lock" class="nav-link">systemctl start nfs-lock</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-start-nfs-idmap" class="nav-link">systemctl start nfs-idmap</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-status-nfs" class="nav-link">systemctl status nfs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#chmod-r-755-sydleone" class="nav-link">chmod -R 755 /sydleone/</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#chown-nfsnobodynfsnobody-sydleone" class="nav-link">chown nfsnobody:nfsnobody /sydleone/</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#vim-etcexports" class="nav-link">vim /etc/exports</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#exportfs" class="nav-link">exportfs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-restart-nfs-server" class="nav-link">systemctl restart nfs-server</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#showmount-e-vmhomapp-esc01" class="nav-link">showmount -e VMHOMAPP-ESC01</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#yum-install-nfs-utils" class="nav-link">yum install nfs-utils</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#usermod-a-g-nfsnobody-deployer" class="nav-link">usermod -a -G nfsnobody deployer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#mkdir-sydleone_1" class="nav-link">mkdir /sydleone</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#chown-nfsnobodynfsnobody-sydleone_1" class="nav-link">chown nfsnobody:nfsnobody /sydleone/</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#mount-t-nfs-vmhomapp-esc01sydleone-sydleone" class="nav-link">mount -t nfs vmhomapp-esc01:/sydleone /sydleone</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#vim-etcfstab_1" class="nav-link">vim /etc/fstab</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#yum-install-httpd-y" class="nav-link">yum install httpd -y</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-enable-now-httpd" class="nav-link">systemctl enable --now httpd</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#rm-rf-usrsharehttpdnoindex" class="nav-link">rm -rf /usr/share/httpd/noindex/*</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#vim-etchttpdconfhttpdconf" class="nav-link">vim /etc/httpd/conf/httpd.conf</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#timezone" class="nav-link">TIMEZONE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#seguranca" class="nav-link">SEGURANCA</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#cat-etchttpdconfdportal-pmcdigitalconf" class="nav-link">cat /etc/httpd/conf.d/portal-pmcdigital.conf</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#cat-etchttpdconfdservicodigitalservidorconf" class="nav-link">cat /etc/httpd/conf.d/servicodigitalservidor.conf</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#cd-varwww" class="nav-link">cd /var/www</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#tar-zcvf-rootbackuptargz-portal-pmcdigital-pmc-prd-portal-pub-pmcdigital-pmc-prd" class="nav-link">tar -zcvf /root/backup.tar.gz portal-pmcdigital-pmc-prd portal-pub-pmcdigital-pmc-prd</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#cd-varwww_1" class="nav-link">cd /var/www</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#tar-zxvf-backuptargz" class="nav-link">tar -zxvf backup.tar.gz</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#rm-f-backuptargz" class="nav-link">rm -f backup.tar.gz</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#cat-etchaproxyhaproxycfg" class="nav-link">cat /etc/haproxy/haproxy.cfg</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#sydle-java" class="nav-link">Sydle Java</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#sydle-php" class="nav-link">Sydle PHP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#sydle-java_1" class="nav-link">Sydle Java</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#sydle-php_1" class="nav-link">Sydle PHP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-stop-elasticsearch" class="nav-link">systemctl stop elasticsearch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#rm-rf-varlibelasticsearch" class="nav-link">rm -rf /var/lib/elasticsearch/*</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#replica" class="nav-link">Replica</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#correcao-permissoes" class="nav-link">Correção Permissões</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#validacao" class="nav-link">Validação</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#iniciar-a-copia-dentro-do-servidor-vmprdapp-escprocrpl-1723131183" class="nav-link">Iniciar a cópia dentro do servidor VMPRDAPP-ESCPROCRPL (172.31.31.183)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#devolver-o-diretorio-datamongodbmongodb-linux-x86_64-rhel70-4217-para-o-datamongodb-servidores-escmongo" class="nav-link">Devolver o diretório /data/mongodb/mongodb-linux-x86_64-rhel70-4.2.17/ para o /data/mongodb (servidores ESCMONGO)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#iniciar-o-servico-no-no-primario-vmprddb-escmongo01" class="nav-link">Iniciar o serviço no nó Primário (VMPRDDB-ESCMONGO01)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#conectar-no-mongodb" class="nav-link">Conectar no MongoDB</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#refazer-a-configuracao-do-replicaset" class="nav-link">Refazer a configuração do replicaset</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#acessar-os-servidores-vmprddb-escmongo02-e-vmprddb-escmongo03-e-iniciar-os-servicos" class="nav-link">Acessar os servidores VMPRDDB-ESCMONGO02 e VMPRDDB-ESCMONGO03 e iniciar os serviços</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#alterar-a-prioridade-do-secondary-para-fazer-failback-automatico-caso-o-no-1-caia-e-volte-depois" class="nav-link">Alterar a prioridade do secondary para fazer failback automático caso o nó 1 caia e volte depois</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#obs-durante-a-copia-para-o-servidor-secundario-o-status-ficara-sdlprdsetstartup2" class="nav-link">Obs.: Durante a cópia para o servidor secundário, o status ficará sdlPrdSet:STARTUP2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#apos-a-copia-dos-dados-fazer-as-alteracoes-nas-bases-escmongo-usando-o-no-primario" class="nav-link">Após a cópia dos dados, fazer as alterações nas bases escmongo (usando o nó primário)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#desabilitar-organizacao" class="nav-link">Desabilitar organização</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#systemctl-start-tomcat8" class="nav-link">systemctl start tomcat8</a>
+              <ul class="nav flex-column">
               </ul>
             </li>
         </ul>
@@ -95,20 +473,463 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="page-test">Page Test</h1>
-<h2 id="commands">Commands</h2>
+<p>===== Infraestrutura =====</p>
+<p>Segue abaixo documentação da nova infraestrutura em Cluster.</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>Desenvolvimento</strong></li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<p>|<strong>SERVIDOR</strong> |<strong>ENDEREÇO IP</strong> |<strong>FUNÇÃO</strong> |<strong>CPU</strong> |<strong>RAM</strong> |<strong>DISCO</strong> |
+|VMHOMAPP-ESC01|172.31.22.4|Frontend/backend/NFS|4|16 GB|S.O +100 GB|
+|VMHOMAPP-ESC02|172.31.22.5|Frontend/backend|4|16 GB|S.O + 30 GB|
+|VMHOMAPP-ESC03|172.31.22.6|sys (controle)|2|4 GB|S.O + 30 GB|
+|VMHOMAPP-ESC04|172.31.22.7|sys (controle)|2|4 GB|S.O + 30 GB|
+|VMHOMAPP-ESCELA01|172.31.22.8|Elastic|4|16 GB|S.O + 100 GB|
+|VMHOMAPP-ESCELA02|172.31.22.9|Elastic|4|16 GB|S.O + 100 GB|
+|VMHOMAPP-ESCELA03|172.31.22.10|Elastic|4|16 GB|S.O + 100 GB|
+|VMHOMDB-ESCMONGO01|172.31.22.11|Database|4|16 GB|S.O + 100 GB|
+|VMHOMDB-ESCMONGO02|172.31.22.12|Database|4|16 GB|S.O + 100 GB|
+|VMHOMDB-ESCMONGO03|172.31.22.13|Database|2|4 GB|S.O + 100 GB|</p>
+<ul>
+<li><strong>Produção</strong></li>
+</ul>
+<p>|<strong>SERVIDOR</strong> |<strong>ENDEREÇO IP</strong> |<strong>FUNÇÃO</strong> |<strong>CPU</strong> |<strong>RAM</strong> |<strong>DISCO</strong> |
+|VMPRDAPP-ESC01|172.31.24.4|Frontend/backend|8|32 GB|S.O + 50 GB|
+|VMPRDAPP-ESC02|172.31.24.5|Frontend/backend|8|32 GB|S.O + 50 GB|
+|VMPRDAPP-ESC03|172.31.24.6|sys (controle)|2|4 GB|S.O + 50 GB|
+|VMPRDAPP-ESC04|172.31.24.7|sys (controle)|2|4 GB|S.O + 50 GB|
+|VMPRDAPP-ESCELA01|172.31.24.8|Elastic|8|16 GB|S.O + 150 GB|
+|VMPRDAPP-ESCELA02|172.31.24.9|Elastic|8|16 GB|S.O + 150 GB|
+|VMPRDAPP-ESCELA03|172.31.24.10|Elastic|8|16 GB|S.O + 150 GB|
+|VMPRDDB-ESCMONGO01|172.31.24.11|Database|4|16 GB|S.O + 350 GB|
+|VMPRDDB-ESCMONGO02|172.31.24.12|Database|4|16 GB|S.O + 750 GB|
+|VMPRDDB-ESCMONGO03|172.31.24.13|Database|2|4 GB|S.O + 200 GB|
+|VMPRDAPP-ESCFILES|172.31.24.14|Armazenmento de arquivos NFS|4|4 GB|S.O + 1.5 TB|</p>
+<p>===== URL =====</p>
+<p><strong>Desenvolvimento</strong></p>
+<p>[[https://devservicodigital.curitiba.pr.gov.br|https://devservicodigital.curitiba.pr.gov.br]]\
+[[https://homservicodigital.curitiba.pr.gov.br|https://homservicodigital.curitiba.pr.gov.br]]\
+[[https://dev-pmcdigital.curitiba.pr.gov.br|https://dev-pmcdigital.curitiba.pr.gov.br]]\
+[[https://hom-pmcdigital.curitiba.pr.gov.br|https://hom-pmcdigital.curitiba.pr.gov.br]]</p>
+<p><strong>Produção</strong></p>
+<p>[[https://servicodigital.curitiba.pr.gov.br|https://servicodigital.curitiba.pr.gov.br]]\
+[[https://servicodigitalservidor.curitiba.pr.gov.br|https://servicodigitalservidor.curitiba.pr.gov.br]]\
+[[https://pmcdigital.curitiba.pr.gov.br|https://pmcdigital.curitiba.pr.gov.br]]</p>
+<p>===== Elasticsearch =====</p>
+<p>Documentação da instalação do cluster Elasticsearch executada em conjunto com o Analista Eduardo da empresa Sydle no dia <strong>19/05/2022</strong></p>
+<p><strong>OBS</strong>: Efetuamos a instalação juntamente com a Sydle, seguindo as boas praticas e recomendações repassadas em videoconferência.</p>
+<p>Segue em anexo documentação original encaminhada por e-mail ⇒ {{:linux:solucoes:install_elasticsearch.txt|install_elasticsearch.txt}}</p>
+<p>Hardware utilizado seguindo a recomendação da Sydle</p>
+<ul>
+<li>4 x Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz</li>
+<li>16 GB Memória RAM</li>
+<li>30 GB sistema operacional / 100 GB para o diretório /var/lib/elasticsearch</li>
+</ul>
+<p><strong>OBS</strong>: configuração sugerida não foi suficiente, sendo necessário upgrade. Consulte o menu infraestrutura</p>
+<p>Os passos para preparação do ambiente, instalação e configuração devem ser executadas nos três servidores simultaneamente</p>
+<p><code bash></p>
+<h1 id="ajustes-so">Ajustes S.O</h1>
+<p>vim /etc/security/limits.conf
+elasticsearch  -  nofile  999999
+elasticsearch soft memlock unlimited
+elasticsearch hard memlock unlimited</p>
+<p>vim /etc/sysctl.conf
+vm.max_map_count=262144
+vm.swappiness = 1</p>
+<p>sysctl -p</p>
+<p>sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config</p>
+<h1 id="instalacao-arquivos-disponiveis-no-owncloud-solucoes-tecnicasservers-linuxsydle">Instalação&gt;&gt; arquivos disponíveis no owncloud&gt;&gt; Soluções Tecnicas\Servers Linux\Sydle</h1>
+<p>rpm -ivh jdk-11.0.15_linux-x64_bin.rpm</p>
+<p>rpm -ivh elasticsearch-7.6.2-x86_64.rpm
+chown -R elasticsearch.elasticsearch /var/lib/elasticsearch</p>
+<p>vim /usr/lib/systemd/system/elasticsearch.service
+LimitNOFILE=999999
+LimitNPROC=65536
+LimitMEMLOCK=infinity</p>
+<p>systemctl daemon-reload
+systemctl enable elasticsearch.service</p>
+<h1 id="editar-configuracao-do-elasticsearch-em-todos-os-nodes-exemplo">Editar configuração do Elasticsearch em todos os nodes – (Exemplo)</h1>
+<p>cat /etc/elasticsearch/elasticsearch.yml
+cluster.name: sydleone-cluster-hom
+node.name: VMHOMAPP-ESCELA01
+node.master: true
+node.data: true
+node.ingest: false
+bootstrap.memory_lock: true
+network.host: VMHOMAPP-ESCELA01
+http.port: 9200
+transport.tcp.port: 9300
+discovery.zen.ping.unicast.hosts: ["VMHOMAPP-ESCELA01","VMHOMAPP-ESCELA02","VMHOMAPP-ESCELA03"]
+action.destructive_requires_name: false
+bootstrap.system_call_filter: false
+action.auto_create_index: ".watches,.triggered_watches,.watcher-history-*"
+path.logs: /var/log/elasticsearch
+path.data: /var/lib/elasticsearch
+cluster.initial_master_nodes: VMHOMAPP-ESCELA01, VMHOMAPP-ESCELA02, VMHOMAPP-ESCELA03
+discovery.zen.minimum_master_nodes: 2
+gateway.recover_after_nodes: 2
+gateway.expected_nodes: 3
+gateway.recover_after_time: 10m
+http.max_initial_line_length : 10mb
+cluster.routing.allocation.disk.threshold_enabled: true
+cluster.routing.allocation.disk.watermark.low: "90%"
+cluster.routing.allocation.disk.watermark.high: "95%"
+cluster.routing.allocation.disk.watermark.flood_stage: "99%"
+indices.query.bool.max_clause_count: 3000</p>
+<p>vim /etc/elasticsearch/jvm.options</p>
+<h1 id="xms-represents-the-initial-size-of-total-heap-space">Xms represents the initial size of total heap space</h1>
+<h1 id="xmx-represents-the-maximum-size-of-total-heap-space">Xmx represents the maximum size of total heap space</h1>
+<p>-Xms11g
+-Xmx11g</p>
+<h1 id="g1gc-configuration">G1GC Configuration</h1>
+<h1 id="note-g1-gc-is-only-supported-on-jdk-version-10-or-later">NOTE: G1 GC is only supported on JDK version 10 or later</h1>
+<h1 id="to-use-g1gc-uncomment-the-next-two-lines-and-update-the-version-on-the">to use G1GC, uncomment the next two lines and update the version on the</h1>
+<h1 id="following-three-lines-to-your-version-of-the-jdk">following three lines to your version of the JDK</h1>
+<p>10-13:-XX:-UseConcMarkSweepGC
+10-13:-XX:-UseCMSInitiatingOccupancyOnly
+11-:-XX: UseG1GC
+11-:-XX:G1ReservePercent=25
+11-:-XX:InitiatingHeapOccupancyPercent=30</p>
+<h1 id="cve-2021-44228-log4j2">CVE-2021-44228 (log4j2)</h1>
+<p>-Dlog4j2.formatMsgNoLookups=true</p>
+<h1 id="iniciar-servico-em-todos-os-nodes">Iniciar serviço em todos os nodes</h1>
+<p>systemctl start elasticsearch.service</p>
+<h1 id="alterar-parametros-persistentes-no-node-vmhomapp-escela01">Alterar parametros persistentes no node VMHOMAPP-ESCELA01</h1>
+<p>curl -H 'Content-Type: application/json' -XPUT "http://$HOSTNAME:9200/_cluster/settings" -d '{
+    "persistent": {
+          "cluster.routing.allocation.node_concurrent_incoming_recoveries": "20",
+          "cluster.routing.allocation.cluster_concurrent_rebalance": "20",
+          "cluster.routing.allocation.node_concurrent_recoveries": "20",
+          "cluster.routing.allocation.node_initial_primaries_recoveries": "40",
+          "cluster.routing.allocation.node_concurrent_outgoing_recoveries": "20",
+          "cluster.max_shards_per_node": "30000",
+          "indices.recovery.max_bytes_per_sec": "100mb",
+          "action.search.shard_count.limit": "3000",
+          "search.max_buckets": 100000,
+          "cluster.routing.allocation.disk.threshold_enabled": "true",
+          "cluster.routing.allocation.disk.watermark.low": "90%",
+          "cluster.routing.allocation.disk.watermark.high": "95%",
+          "cluster.routing.allocation.disk.watermark.flood_stage": "99%"
+     }
+}'</p>
+<h1 id="testar-servico-no-node-vmhomapp-escela01">Testar serviço no node VMHOMAPP-ESCELA01</h1>
+<p>[root@VMHOMAPP-ESCELA01 ~]# curl "$HOSTNAME":9200
+{
+  "name" : "VMHOMAPP-ESCELA01",
+  "cluster_name" : "sydleone-cluster-hom",
+  "cluster_uuid" : "fUju0zLpQ5yLiaSUsfEj5w",
+  "version" : {
+    "number" : "7.6.2",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "ef48eb35cf30adf4db14086e8aabd07ef6fb113f",
+    "build_date" : "2020-03-26T06:34:37.794943Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.4.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}</p>
+<p>root@VMHOMAPP-ESCELA01 ~]# curl "$HOSTNAME":9200/_cat/nodes?v
+ip             heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
+172.19.208.227            4          75   0    0.00    0.01     0.05 dlm       *      VMHOMAPP-ESCELA02
+172.19.208.234            3          75   0    0.00    0.01     0.05 dlm       -      VMHOMAPP-ESCELA03
+172.19.210.225            3          75   0    0.00    0.01     0.05 dlm       -      VMHOMAPP-ESCELA01</p>
+<p>[root@VMHOMAPP-ESCELA01 ~]# curl "$HOSTNAME":9200/_cat/health
+1652985296 18:34:56 sydleone-cluster-hom green 3 3 0 0 0 0 0 0 - 100.0%</p>
+<p></code></p>
+<p>O elasticsearch funciona através das portas <strong>TCP 9200 e 9300</strong></p>
+<p><strong>Visualizar tamanho dos indices</strong></p>
+<p><code bash>
+curl 'http://172.31.31.199:9200/_cat/indices/?pretty&amp;s=store.size:desc' | more
+</code></p>
+<p>===== Tomcat =====</p>
+<p>Documentação da instalação do webserver Tomcat executada em conjunto com o Analista Eduardo Legatti da empresa Sydle no dia <strong>24/05/2022</strong></p>
+<p><strong>OBS</strong>: Efetuamos a instalação juntamente com a Sydle, seguindo as boas praticas e recomendações repassadas em videoconferência.</p>
+<p><code bash></p>
+<h1 id="java">Java</h1>
+<p>/usr/local/jdk1.8.0_202</p>
+<h1 id="tomcat">Tomcat</h1>
+<p>/usr/local/apache-tomcat-8.5.79</p>
+<h1 id="link-simbolico">Link Simbólico</h1>
+<p>ls -l /usr/local/
+lrwxrwxrwx  1 root     root            12 May 24 14:15 jdk8 -&gt; jdk1.8.0_202
+lrwxrwxrwx  1 deployer deployer        20 May 24 14:16 tomcat8 -&gt; apache-tomcat-8.5.79</p>
+<h1 id="script-inicializacao">script inicialização</h1>
+<p>vim /etc/init.d/tomcat8
+chmod  x /etc/init.d/tomcat8
+chkconfig tomcat8 on</p>
+<h1 id="remocao-de-todas-as-aplicacoes-default">Remoção de todas as aplicações default</h1>
+<p>rm -rf /usr/local/tomcat8/webapps/*</p>
+<p></code></p>
+<p><code bash></p>
+<h1 id="configuracoes-efetuada-no-arquivo-usrlocaltomcat8bincatalinash">Configurações efetuada no arquivo /usr/local/tomcat8/bin/catalina.sh</h1>
+<h1 id="servidores-vmhomapp-esc01-e-vmhomapp-esc02">Servidores VMHOMAPP-ESC01 e VMHOMAPP-ESC02</h1>
+<p>JAVA_HOME=/usr/local/jdk8</p>
+<p>CATALINA_OPTS="-server -Xms12000M -Xmx12000M -XX: UseStringDeduplication -XX: UseG1GC -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=4 -XX:ConcGCThreads=4 -XX:InitiatingHeapOccupancyPercent=60 -Dfile.encoding=ISO8859_1 -Dmail.encoding=ISO8859_1 -Djava.awt.headless=true -Djava.rmi.server.hostname=172.19.210.212 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8010 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
+</code></p>
+<p><code bash></p>
+<h1 id="configuracoes-efetuada-no-arquivo-usrlocaltomcat8bincatalinash_1">Configurações efetuada no arquivo /usr/local/tomcat8/bin/catalina.sh</h1>
+<h1 id="servidores-vmhomapp-esc03-e-vmhomapp-esc04">Servidores VMHOMAPP-ESC03 e VMHOMAPP-ESC04</h1>
+<p>JAVA_HOME=/usr/local/jdk8</p>
+<p>CATALINA_OPTS="-server -Xms3000M -Xmx3000M -XX: UseStringDeduplication -XX: UseG1GC -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=4 -XX:ConcGCThreads=4 -XX:InitiatingHeapOccupancyPercent=60 -Dfile.encoding=ISO8859_1 -Dmail.encoding=ISO8859_1 -Djava.awt.headless=true -Djava.rmi.server.hostname=172.19.210.212 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8010 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
+</code></p>
+<p>===== NFS =====</p>
+<p>Montar NFS para armazenamento dos dados nos 4 servidores Tomcat =⇒ /sydleone</p>
+<ul>
+<li>DEV = Usar a mesma infraestrutura de DEV</li>
+<li>PRD = Servidor dedicado NFS</li>
+</ul>
+<p><strong>Criando espaço especifico para armazenamento dos dados </strong></p>
+<p><code bash></p>
+<h1 id="chmod-x-rescan_lun_scsish">chmod  x rescan_lun_scsi.sh</h1>
+<h1 id="rescan_lun_scsish">./rescan_lun_scsi.sh</h1>
+<h1 id="parted-devsdb">parted /dev/sdb</h1>
+<h1 id="vgcreate-vg_sydle-devsdb1">vgcreate vg_sydle /dev/sdb1</h1>
+<h1 id="lvcreate-l-100free-n-lv_sydle-vg_sydle">lvcreate -l 100%FREE -n lv_sydle vg_sydle</h1>
+<h1 id="mkfsxfs-devmappervg_sydle-lv_sydle">mkfs.xfs /dev/mapper/vg_sydle-lv_sydle</h1>
+<h1 id="mkdir-sydleone">mkdir /sydleone</h1>
+<h1 id="vim-etcfstab">vim /etc/fstab</h1>
+<p>/dev/mapper/vg_sydle-lv_sydle /sydleone         xfs     defaults        0 0
+</code></p>
+<p><strong>Instalação e configuração NFS </strong></p>
+<p><code bash></p>
+<h1 id="yum-install-nfs-utils-rpcbind">yum install nfs-utils rpcbind</h1>
+<h1 id="systemctl-start-rpcbind">systemctl start rpcbind</h1>
+<h1 id="systemctl-start-nfs-server">systemctl start nfs-server</h1>
+<h1 id="systemctl-start-nfs-lock">systemctl start nfs-lock</h1>
+<h1 id="systemctl-start-nfs-idmap">systemctl start nfs-idmap</h1>
+<h1 id="systemctl-status-nfs">systemctl status nfs</h1>
+<h1 id="chmod-r-755-sydleone">chmod -R 755 /sydleone/</h1>
+<h1 id="chown-nfsnobodynfsnobody-sydleone">chown nfsnobody:nfsnobody /sydleone/</h1>
+<h1 id="vim-etcexports">vim /etc/exports</h1>
+<p>/sydleone 172.19.210.214(rw,sync)
+/sydleone 172.19.210.221(rw,sync)
+/sydleone 172.19.210.224(rw,sync)</p>
+<h1 id="exportfs">exportfs</h1>
+<h1 id="systemctl-restart-nfs-server">systemctl restart nfs-server</h1>
+<h1 id="showmount-e-vmhomapp-esc01">showmount -e VMHOMAPP-ESC01</h1>
+<p>Export list for VMHOMAPP-ESC01:
+/sydleone 172.19.210.224,172.19.210.221,172.19.210.214
+</code></p>
+<p>Agora no cliente (máquina que irá montar o compartilhamento feito anteriormente) execute:</p>
+<p><code bash></p>
+<h1 id="yum-install-nfs-utils">yum install nfs-utils</h1>
+<h1 id="usermod-a-g-nfsnobody-deployer">usermod -a -G nfsnobody deployer</h1>
+<h1 id="mkdir-sydleone_1">mkdir /sydleone</h1>
+<h1 id="chown-nfsnobodynfsnobody-sydleone_1">chown nfsnobody:nfsnobody /sydleone/</h1>
+<h1 id="mount-t-nfs-vmhomapp-esc01sydleone-sydleone">mount -t nfs vmhomapp-esc01:/sydleone /sydleone</h1>
+<h1 id="vim-etcfstab_1">vim /etc/fstab</h1>
+<p>vmhomapp-esc01:/sydleone        /sydleone       nfs     defaults        0 0
+</code></p>
+<p>===== Apache httpd =====</p>
+<p>Os procedimentos devem ser executados em <strong>VMPRDAPP-ESC01</strong>  e <strong>VMPRDAPP-ESC02</strong></p>
+<p><code bash></p>
+<h1 id="yum-install-httpd-y">yum install httpd -y</h1>
+<h1 id="systemctl-enable-now-httpd">systemctl enable --now httpd</h1>
+<h1 id="rm-rf-usrsharehttpdnoindex">rm -rf /usr/share/httpd/noindex/*</h1>
+<h1 id="vim-etchttpdconfhttpdconf">vim /etc/httpd/conf/httpd.conf</h1>
+<h1 id="timezone">TIMEZONE</h1>
+<p>SetEnv TZ America/Sao_Paulo</p>
+<h1 id="seguranca">SEGURANCA</h1>
+<p>ServerSignature Off
+ServerTokens Prod
+TraceEnable Off
+</code></p>
+<p>Configuração portal servicodigital.curitiba.pr.gov.br</p>
+<p><code bash></p>
+<h1 id="cat-etchttpdconfdportal-pmcdigitalconf">cat /etc/httpd/conf.d/portal-pmcdigital.conf</h1>
+<p><VirtualHost *:80>
+    ServerName servicodigital.curitiba.pr.gov.br
+    ServerAlias servicodigitalinterno.curitiba.pr.gov.br
+    DocumentRoot /var/www/portal-pmcdigital-pmc-prd
+    RemoteIPHeader X-Forwarded-For</p>
+<pre><code>&lt;Directory /var/www/portal-pmcdigital-pmc-prd&gt;
+  Options Indexes FollowSymLinks
+  Require all granted
+  AllowOverride All
+&lt;/Directory&gt;
+</code></pre>
+<p></VirtualHost>
+</code></p>
+<p>Configuração portal servicodigitalservidor.curitiba.pr.gov.br</p>
+<p><code bash></p>
+<h1 id="cat-etchttpdconfdservicodigitalservidorconf">cat /etc/httpd/conf.d/servicodigitalservidor.conf</h1>
+<p><VirtualHost *:80>
+    ServerName servicodigitalservidor.curitiba.pr.gov.br
+    ServerAlias int-servicodigitalservidor.curitiba.pr.gov.br
+    DocumentRoot /var/www/portal-pub-pmcdigital-pmc-prd
+    RemoteIPHeader X-Forwarded-For</p>
+<pre><code>&lt;Directory /var/www/portal-pub-pmcdigital-pmc-prd&gt;
+  Options Indexes FollowSymLinks
+  Require all granted
+  AllowOverride All
+&lt;/Directory&gt;
+</code></pre>
+<p></VirtualHost></p>
+<p></code></p>
+<p>Efetuando <strong>backup</strong>  dos portais em <strong>VMPRDAPP-ESCPROC</strong></p>
+<p><code bash></p>
+<h1 id="cd-varwww">cd /var/www</h1>
+<h1 id="tar-zcvf-rootbackuptargz-portal-pmcdigital-pmc-prd-portal-pub-pmcdigital-pmc-prd">tar -zcvf /root/backup.tar.gz portal-pmcdigital-pmc-prd portal-pub-pmcdigital-pmc-prd</h1>
+<p></code></p>
+<p>Restore dos arquivos em <strong>VMPRDAPP-ESC01</strong>  e <strong>VMPRDAPP-ESC02</strong></p>
+<p><code bash></p>
+<h1 id="cd-varwww_1">cd /var/www</h1>
+<h1 id="tar-zxvf-backuptargz">tar -zxvf backup.tar.gz</h1>
+<h1 id="rm-f-backuptargz">rm -f backup.tar.gz</h1>
+<p></code></p>
+<p>===== Load Balance =====</p>
+<p>Executar configurações em <strong>LBHASOLUTION1</strong>  e <strong>LBHASOLUTION2</strong></p>
+<p><code bash></p>
+<h1 id="cat-etchaproxyhaproxycfg">cat /etc/haproxy/haproxy.cfg</h1>
+<p>use_backend pmcdigital.curitiba.pr.gov.br             if { hdr_dom(host) -i pmcdigital.curitiba.pr.gov.br }
+   use_backend servicodigital.curitiba.pr.gov.br         if { hdr_dom(host) -i servicodigital.curitiba.pr.gov.br }
+   use_backend servicodigitalservidor.curitiba.pr.gov.br if { hdr_dom(host) -i servicodigitalservidor.curitiba.pr.gov.br }</p>
+<p>backend pmcdigital.curitiba.pr.gov.br
+   option httpchk HEAD / HTTP/1.1\r\nHost:
+pmcdigital.curitiba.pr.gov.br
+   http-check expect status 200
+   server server01 vmprdapp-esc01.curitiba.pr.gov.br:8080 weight 1 maxconn 200
+   server server02 vmprdapp-esc02.curitiba.pr.gov.br:8080 weight 1 maxconn 200</p>
+<p>backend servicodigital.curitiba.pr.gov.br
+   option httpchk HEAD / HTTP/1.1\r\nHost: servicodigital.curitiba.pr.gov.br
+   http-check expect status 200
+   server server01 vmprdapp-esc01.curitiba.pr.gov.br:80 weight 1 maxconn 200
+   server server02 vmprdapp-esc02.curitiba.pr.gov.br:80 weight 1 maxconn 200</p>
+<p>backend servicodigitalservidor.curitiba.pr.gov.br
+   option httpchk HEAD / HTTP/1.1\r\nHost: servicodigitalservidor.curitiba.pr.gov.br
+   http-check expect status 200
+   server server01 vmprdapp-esc01.curitiba.pr.gov.br:80 weight 1 maxconn 200
+   server server02 vmprdapp-esc02.curitiba.pr.gov.br:80 weight 1 maxconn 200
+</code></p>
+<p>===== Gestão de mudança =====</p>
+<p>==== Resumo ====</p>
+<p>Será necessário alterar apontamento do proxy reverso. A infraestrutura standalone esta hospedada na solução nginx (<strong>vmprdprx-web</strong>)</p>
+<p><code bash></p>
+<h1 id="sydle-java">Sydle Java</h1>
+<p>pmcdigital.curitiba.pr.gov.br [172.31.10.40] =&gt; ep.curitiba.pr.gov.br:8443 [172.31.31.180]</p>
+<h1 id="sydle-php">Sydle PHP</h1>
+<p>servicodigital.curitiba.pr.gov.br [172.31.10.40] =&gt; servicodigitalinterno.curitiba.pr.gov.br [172.31.31.180]
+servicodigitalservidor.curitiba.pr.gov.br [172.31.10.40] =&gt; int-servicodigitalservidor.curitiba.pr.gov.br [172.31.31.180]
+</code></p>
+<p>A nova infraestrutura será hospedada no Haproxy (<strong>LBHASOLUTION</strong>)</p>
+<p><code bash></p>
+<h1 id="sydle-java_1">Sydle Java</h1>
+<p>pmcdigital.curitiba.pr.gov.br [172.31.10.17] =&gt; vmprdapp-esc01.curitiba.pr.gov.br:8080 [172.31.24.4]
+pmcdigital.curitiba.pr.gov.br [172.31.10.17] =&gt; vmprdapp-esc02.curitiba.pr.gov.br:8080 [172.31.24.5]</p>
+<h1 id="sydle-php_1">Sydle PHP</h1>
+<p>servicodigital.curitiba.pr.gov.br [172.31.10.17] =&gt; vmprdapp-esc01.curitiba.pr.gov.br:80 [172.31.24.4]
+servicodigitalservidor.curitiba.pr.gov.br [172.31.10.17] =&gt; vmprdapp-esc01.curitiba.pr.gov.br:80 [172.31.24.5]
+</code></p>
+<p>==== Procedimento Operacional ====</p>
+<p>Procedimentos a serem executados na <strong>infraestrutura standalone</strong></p>
+<p>2 - Desabilitar Organização \ 3 - Parar Tomcat VMPRDAPP-ESCPROC, VMPRDAPP-ESC01, VMPRDAPP-ESC02 \ 4 - Parar MongoDB \ 5 - Parar Elastic ⇒ [root@VMPRDAPP-INDEX ~]# systemctl stop elasticsearch \ 6 - Replicação dos arquivos /sydleone</p>
+<p><code bash>
+[root@VMPRDAPP-ESCPROC ~]# rsync /sydleone/ -arvz -e 'ssh -p 6293' --progress --delete root@vmprdapp-escfiles.curitiba.pr.gov.br:/sydleone/</p>
+<p>[root@VMPRDAPP-ESCFILES ~]# chown -R nfsnobody:nfsnobody /sydleone/ ; chmod -R 775 /sydleone/
+</code></p>
+<p>7 - Replicação Elastic</p>
+<p>7.1 - Apagar todos os índices da estrutura nova [ <strong>VMPRDAPP-ESCELA01, VMPRDAPP-ESCELA02, VMPRDAPP-ESCELA03</strong>  ]</p>
+<p><code bash></p>
+<h1 id="systemctl-stop-elasticsearch">systemctl stop elasticsearch</h1>
+<h1 id="rm-rf-varlibelasticsearch">rm -rf /var/lib/elasticsearch/*</h1>
+<p></code></p>
+<p>7.2 - Replicação dados <strong>VMPRDAPP-INDEX ⇒ VMPRDAPP-ESCELA01</strong></p>
+<p><code bash></p>
+<h1 id="replica">Replica</h1>
+<p>[root@VMPRDAPP-INDEX ~]# rsync /var/lib/elasticsearch/ -arvz -e 'ssh -p 6293' --progress --delete root@vmprdapp-escela01.curitiba.pr.gov.br:/var/lib/elasticsearch/</p>
+<h1 id="correcao-permissoes">Correção Permissões</h1>
+<p>[root@VMPRDAPP-ESCELA01 ~]# chown -R elasticsearch.elasticsearch /var/lib/elasticsearch
+[root@VMPRDAPP-ESCELA01 ~]# rm -f /var/lib/elasticsearch/nodes/0/node.lock
+[root@VMPRDAPP-ESCELA01 ~]# rm -f /var/lib/elasticsearch/nodes/0/_state
+</code></p>
+<p>7.3 - Iniciar Elastic / Validação</p>
+<p><code bash>
+[root@VMPRDAPP-ESCELA01 ~]# systemctl start elasticsearch
+[root@VMPRDAPP-ESCELA02 ~]# systemctl start elasticsearch
+[root@VMPRDAPP-ESCELA03 ~]# systemctl start elasticsearch</p>
+<p>[root@VMPRDAPP-ESCELA01 ~]# curl "http://172.31.24.8:9200/_cat/health"
+</code></p>
+<p>7.4 - Criação de replicas</p>
+<p><code bash>
+[root@VMPRDAPP-ESCELA01 ~]# curl -H 'Content-Type: application/json' -XPUT "http://$HOSTNAME:9200/<em>5d122d72727e59522b60c339.</em>/_settings" -d '{"index" : {"number_of_replicas" : 1}}'</p>
+<p>[root@VMPRDAPP-ESCELA01 ~]# curl -H 'Content-Type: application/json' -XPUT "http://$HOSTNAME:9200/<em>000000000000111111111111.</em>/_settings" -d '{"index" : {"number_of_replicas" : 1}}'</p>
+<h1 id="validacao">Validação</h1>
+<p>[root@VMPRDAPP-ESCELA01 ~]# curl "http://172.31.24.8:9200/_cat/allocation"
+[root@VMPRDAPP-ESCELA01 ~]# curl "http://172.31.24.8:9200/_cat/indices/*?h=index,pri,rep,docs.count,docs.deleted,pri.store.size&amp;s=pri.store.size:desc&amp;v"
+[root@VMPRDAPP-ESCELA01 ~]# curl "http://172.31.24.8:9200/_cat/health"
+</code></p>
+<p>8 - Migração banco de dados MongoDB</p>
+<p>8.1 - Parar serviço do mongodb nos servidores <strong>VMPRDAPP-ECM (172.31.31.181), VMPRDAPP-ESCPROCRPL (172.31.31.183), VMPRDAPP-ESCPROC (172.31.31.180)</strong></p>
+<p><code bash>
+su - mongodb
+mongo --port 27017 --username "admin" --password "########" --authenticationDatabase "admin"
+use admin
+db.shutdownServer()
+</code></p>
+<p>8.2 Copiar os binários e remover dados desatualizados nos servidores <strong>VMPRDDB-ESCMONGO01, VMPRDDB-ESCMONGO02, VMPRDDB-ESCMONGO03</strong></p>
+<p><code bash>
+cp -Ra  /data/mongodb/mongodb-linux-x86_64-rhel70-4.2.17/ /data/ (temporariamente)
+rm -rf /data/mongodb/*
+</code></p>
+<p>8.3 - Replicar dados</p>
+<p><code bash></p>
+<h1 id="iniciar-a-copia-dentro-do-servidor-vmprdapp-escprocrpl-1723131183">Iniciar a cópia dentro do servidor VMPRDAPP-ESCPROCRPL (172.31.31.183)</h1>
+<p>time rsync -av --delete -e 'ssh -p 6293' /mongodb/data/* root@10.0.0.19:/data/mongodb</p>
+<h1 id="devolver-o-diretorio-datamongodbmongodb-linux-x86_64-rhel70-4217-para-o-datamongodb-servidores-escmongo">Devolver o diretório /data/mongodb/mongodb-linux-x86_64-rhel70-4.2.17/ para o /data/mongodb (servidores ESCMONGO)</h1>
+<p>mv /data/mongodb-linux-x86_64-rhel70-4.2.17/ /data/mongodb/</p>
+<h1 id="iniciar-o-servico-no-no-primario-vmprddb-escmongo01">Iniciar o serviço no nó Primário (VMPRDDB-ESCMONGO01)</h1>
+<p>su - mongodb
+mongod --fork --config /etc/mongod.conf</p>
+<h1 id="conectar-no-mongodb">Conectar no MongoDB</h1>
+<p>mongo --port 27017 --username "admin" --password "########" --authenticationDatabase "admin"</p>
+<h1 id="refazer-a-configuracao-do-replicaset">Refazer a configuração do replicaset</h1>
+<p>cfg = {_id: 'sdlPrdSet', members: [
+     {_id: 0, host: 'vmprddb-escmongo01:27017'},
+     {_id: 1, host: 'vmprddb-escmongo02:27017'},
+     {_id: 2, host: 'vmprddb-escmongo03:27017', arbiterOnly: true}]
+}</p>
+<p>rs.reconfig(cfg, {force: true});</p>
+<h1 id="acessar-os-servidores-vmprddb-escmongo02-e-vmprddb-escmongo03-e-iniciar-os-servicos">Acessar os servidores VMPRDDB-ESCMONGO02 e VMPRDDB-ESCMONGO03 e iniciar os serviços</h1>
+<p>mv /data/mongodb-linux-x86_64-rhel70-4.2.17/ /data/mongodb/
+su - mongodb
+mongod --fork --config /etc/mongod.conf</p>
+<h1 id="alterar-a-prioridade-do-secondary-para-fazer-failback-automatico-caso-o-no-1-caia-e-volte-depois">Alterar a prioridade do secondary para fazer failback automático caso o nó 1 caia e volte depois</h1>
+<p>cfg = rs.conf();
+cfg.members[1].priority = 0.5;
+rs.reconfig(cfg);</p>
+<h1 id="obs-durante-a-copia-para-o-servidor-secundario-o-status-ficara-sdlprdsetstartup2">Obs.: Durante a cópia para o servidor secundário, o status ficará sdlPrdSet:STARTUP2</h1>
+<h1 id="apos-a-copia-dos-dados-fazer-as-alteracoes-nas-bases-escmongo-usando-o-no-primario">Após a cópia dos dados, fazer as alterações nas bases escmongo (usando o nó primário)</h1>
+<p>use 000000000000111111111111</p>
+<p>db.getCollection('000000002337c25acecc394e').update({"_id" : ObjectId("000000000000000331111111")},{"$set": {"5da721852337c25acecc3922": "mongodb://sydleone:sydleonep101@VMPRDDB-ESCMONGO01:27017,VMPRDDB-ESCMONGO02:27017/?connectTimeoutMS=300000"}})</p>
+<p>db.getCollection('000000002337c25acecc38cc').update({"_id" : ObjectId("000000000000000221111111")},{"$set": {"5da71e5b2337c25acecc38c0": "cluster-sydleone"}})</p>
+<p>db.getCollection('000000002337c25acecc38cc').update({"_id" : ObjectId("000000000000000221111111")},{"$set": {"5da71e912337c25acecc38c4": [ "http://VMPRDAPP-ESCELA01:9200", "http://VMPRDAPP-ESCELA02:9200", "http://VMPRDAPP-ESCELA03:9200" ]}})</p>
+<h1 id="desabilitar-organizacao">Desabilitar organização</h1>
+<p>db.getCollection('000000000000000000000333').updateOne({
+  _id: ObjectId('5d122d72727e59522b60c339')
+},{
+  $set: {
+      "5d9f5cf5f5730067840dc3c3" : false
+  }
+})
+</code></p>
+<p>9 - Iniciar a aplicação Java em <strong> VMPRDAPP-ESC01, VMPRDAPP-ESC02, VMPRDAPP-ESC03, VMPRDAPP-ESC04 </strong></p>
+<p><code bash></p>
+<h1 id="systemctl-start-tomcat8">systemctl start tomcat8</h1>
+<p></code></p>
+<p>10 - Alteração de registros DNS</p>
+<ul>
+<li>pmcdigital.curitiba.pr.gov.br ⇒ 172.31.10.17</li>
+<li>pmcdigital.curitiba.pr.gov.br ⇒ 177.125.179.67</li>
+<li>servicodigital.curitiba.pr.gov.br ⇒ 172.31.10.17</li>
+<li>servicodigital.curitiba.pr.gov.br ⇒ 177.125.179.67</li>
+<li>servicodigitalservidor.curitiba.pr.gov.br ⇒ 172.31.10.17</li>
+<li>servicodigitalservidor.curitiba.pr.gov.br ⇒ 177.125.179.67</li>
+</ul>
+<p>===== Troubleshooting =====</p>
+<p>[[http://server:8080/system/sys/admin|http://server:8080/system/sys/admin]]</p>
+<p>\</p></div>
             </div>
         </div>
 
